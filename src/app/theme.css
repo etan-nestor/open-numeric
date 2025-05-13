@@ -1,0 +1,101 @@
+/* app/theme.css */
+
+/* Thème light */
+[data-theme='light'] {
+  --navbar-bg: #ffffff;
+  --navbar-border: #e5e7eb;
+  --navbar-text: #4b5563;
+  --navbar-text-hover: #111827;
+  --navbar-bg-hover: #f3f4f6;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #e5e7eb;
+  --dropdown-text: #4b5563;
+  --dropdown-text-hover: #111827;
+  --dropdown-bg-hover: #f3f4f6;
+  --logo-gradient-from: #3b82f6;
+  --logo-gradient-to: #1d4ed8;
+  --logo-text-from: #3b82f6;
+  --logo-text-to: #1e40af;
+  --button-gradient-from: #f97316;
+  --button-gradient-to: #ea580c;
+}
+
+/* Thème dark (par défaut) */
+[data-theme='dark'] {
+  --navbar-bg: #111827;
+  --navbar-border: #374151;
+  --navbar-text: #d1d5db;
+  --navbar-text-hover: #ffffff;
+  --navbar-bg-hover: #1f2937;
+  --dropdown-bg: #1f2937;
+  --dropdown-border: #374151;
+  --dropdown-text: #d1d5db;
+  --dropdown-text-hover: #ffffff;
+  --dropdown-bg-hover: #374151;
+  --logo-gradient-from: #3b82f6;
+  --logo-gradient-to: #1d4ed8;
+  --logo-text-from: #93c5fd;
+  --logo-text-to: #60a5fa;
+  --button-gradient-from: #f97316;
+  --button-gradient-to: #ea580c;
+}
+
+/* Thème violet-dark */
+[data-theme='violet-dark'] {
+  --navbar-bg: #4c1d95;
+  --navbar-border: #5b21b6;
+  --navbar-text: #ddd6fe;
+  --navbar-text-hover: #ffffff;
+  --navbar-bg-hover: #5b21b6;
+  --dropdown-bg: #5b21b6;
+  --dropdown-border: #6d28d9;
+  --dropdown-text: #ddd6fe;
+  --dropdown-text-hover: #ffffff;
+  --dropdown-bg-hover: #6d28d9;
+  --logo-gradient-from: #8b5cf6;
+  --logo-gradient-to: #7c3aed;
+  --logo-text-from: #c4b5fd;
+  --logo-text-to: #a78bfa;
+  --button-gradient-from: #d946ef;
+  --button-gradient-to: #c026d3;
+}
+
+/* Thème pink-dark */
+[data-theme='pink-dark'] {
+  --navbar-bg: #831843;
+  --navbar-border: #9d174d;
+  --navbar-text: #fbcfe8;
+  --navbar-text-hover: #ffffff;
+  --navbar-bg-hover: #9d174d;
+  --dropdown-bg: #9d174d;
+  --dropdown-border: #be185d;
+  --dropdown-text: #fbcfe8;
+  --dropdown-text-hover: #ffffff;
+  --dropdown-bg-hover: #be185d;
+  --logo-gradient-from: #ec4899;
+  --logo-gradient-to: #db2777;
+  --logo-text-from: #f9a8d4;
+  --logo-text-to: #f472b6;
+  --button-gradient-from: #f97316;
+  --button-gradient-to: #ea580c;
+}
+
+/* Thème blue-dark */
+[data-theme='blue-dark'] {
+  --navbar-bg: #1e3a8a;
+  --navbar-border: #1e40af;
+  --navbar-text: #bfdbfe;
+  --navbar-text-hover: #ffffff;
+  --navbar-bg-hover: #1e40af;
+  --dropdown-bg: #1e40af;
+  --dropdown-border: #1d4ed8;
+  --dropdown-text: #bfdbfe;
+  --dropdown-text-hover: #ffffff;
+  --dropdown-bg-hover: #1d4ed8;
+  --logo-gradient-from: #3b82f6;
+  --logo-gradient-to: #1d4ed8;
+  --logo-text-from: #93c5fd;
+  --logo-text-to: #60a5fa;
+  --button-gradient-from: #f97316;
+  --button-gradient-to: #ea580c;
+}
