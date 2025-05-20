@@ -233,7 +233,7 @@ const ShopPage = () => {
             </Head>
 
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
+            <section className="relative pt-12 pb-20 overflow-hidden">
                 <div className="absolute inset-0 -z-10">
                     <div className={`absolute inset-0 opacity-10 ${theme === 'light' ? 'bg-gray-900' : 'bg-white'}`}></div>
                     <div className="absolute inset-0 bg-[url('/images/grid-dots.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_70%,black)]"></div>

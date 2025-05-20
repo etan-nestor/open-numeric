@@ -135,7 +135,7 @@ const QuotePage = () => {
       </Head>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20">
+      <section className="relative pt-12 pb-20">
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className={`absolute inset-0 opacity-10 ${theme === 'light' ? 'bg-gray-900' : 'bg-white'}`}></div>
           <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_70%,black)]"></div>
