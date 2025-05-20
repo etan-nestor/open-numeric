@@ -4,26 +4,23 @@ import { useState } from 'react';
 import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
-    Palette,
-    Brush,
-    Layout,
-    Type,
-    Image,
-    Film,
-    Smartphone,
+    Axe,
+    Cpu,
+    HardDrive,
+    Printer,
+    Wrench,
+    Network,
     Monitor,
-    Eye,
-    Users,
+    Shield,
     Zap,
-    Layers,
-    Figma,
-    PenTool
+    Clock,
+    Settings
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const DesignPage = () => {
+const MaintenancePage = () => {
     const { theme } = useTheme();
-    const [activeCategory, setActiveCategory] = useState('branding');
+    const [activeCategory, setActiveCategory] = useState('repair');
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
     // Couleurs dynamiques en fonction du thème
@@ -67,147 +64,136 @@ const DesignPage = () => {
         }
     };
 
-    // Catégories de design
-    const designCategories = {
-        branding: [
-            { name: 'Identité visuelle', icon: Palette, description: 'Création d\'une identité unique et cohérente pour votre marque.' },
-            { name: 'Charte graphique', icon: Brush, description: 'Guide complet pour une application harmonieuse de votre identité.' },
-            { name: 'Logo design', icon: Type, description: 'Conception de logos mémorables et évocateurs de vos valeurs.' },
-            { name: 'Brand guidelines', icon: Layers, description: 'Manuel d\'utilisation de votre identité visuelle.' },
+    // Catégories de maintenance
+    const maintenanceCategories = {
+        repair: [
+            { name: 'Réparation PC/Mac', icon: Cpu, description: 'Diagnostic et réparation complète des ordinateurs.' },
+            { name: 'Réparation Périphériques', icon: Printer, description: 'Imprimantes, scanners et autres équipements.' },
+            { name: 'Remplacement Écrans', icon: Monitor, description: 'Remplacement d\'écrans LCD/LED endommagés.' },
+            { name: 'Récupération Données', icon: HardDrive, description: 'Sauvetage de données sur disques défectueux.' },
         ],
-        print: [
-            { name: 'Brochures & Catalogues', icon: Image, description: 'Supports print attractifs et efficaces.' },
-            { name: 'Affiches & Bannières', icon: PenTool, description: 'Designs percutants pour votre communication visuelle.' },
-            { name: 'Cartes de visite', icon: Layout, description: 'Premier contact tangible avec votre marque.' },
-            { name: 'Packaging', icon: Layers, description: 'Design d\'emballage qui raconte votre histoire.' },
+        network: [
+            { name: 'Dépannage Réseau', icon: Network, description: 'Résolution des problèmes de connectivité.' },
+            { name: 'Configuration WiFi', icon: Zap, description: 'Optimisation du signal et couverture.' },
+            { name: 'Sécurité Réseau', icon: Shield, description: 'Protection contre les intrusions.' },
+            { name: 'Câblage Structuré', icon: Settings, description: 'Installation réseau filaire professionnelle.' },
         ],
-        digital: [
-            { name: 'Interfaces utilisateur', icon: Monitor, description: 'UI intuitives et esthétiques pour vos applications.' },
-            { name: 'Design responsive', icon: Smartphone, description: 'Adaptation parfaite à tous les devices.' },
-            { name: 'Prototypes interactifs', icon: Figma, description: 'Maquettes cliquables pour valider l\'expérience.' },
-            { name: 'Design système', icon: Layers, description: 'Bibliothèque de composants cohérente et scalable.' },
-        ],
-        motion: [
-            { name: 'Animations UI', icon: Zap, description: 'Micro-interactions pour une expérience dynamique.' },
-            { name: 'Motion graphics', icon: Film, description: 'Contenu vidéo animé pour captiver votre audience.' },
-            { name: 'Transitions', icon: Eye, description: 'Effets visuels fluides entre les états.' },
-            { name: 'Brand animations', icon: Palette, description: 'Identité animée pour une marque vivante.' },
+        preventive: [
+            { name: 'Nettoyage Interne', icon: Axe, description: 'Élimination poussière pour refroidissement optimal.' },
+            { name: 'Mises à Jour', icon: Clock, description: 'Maintenance logicielle et firmware.' },
+            { name: 'Diagnostic Complet', icon: Wrench, description: 'Vérification approfondie du matériel.' },
+            { name: 'Contrats Maintenance', icon: Shield, description: 'Programmes de suivi personnalisés.' },
         ]
     };
 
-    // Services de design
+    // Services de maintenance
     const services = [
         {
-            title: 'Identité Visuelle Complète',
-            description: 'Nous créons une identité visuelle forte et cohérente qui reflète l\'essence de votre marque.',
+            title: 'Réparation Matérielle',
+            description: 'Diagnostic et réparation de tous vos équipements informatiques.',
             features: [
-                'Recherche et stratégie de marque',
-                'Direction artistique',
-                'Développement de logo',
-                'Palette de couleurs et typographie',
-                'Applications sur différents supports'
+                'Ordinateurs fixes et portables',
+                'Imprimantes et photocopieurs',
+                'Remplacement de composants',
+                'Réparation d\'écrans',
+                'Récupération de données'
             ],
-            icon: Palette,
-            gradient: 'from-purple-500 to-pink-500'
+            icon: Cpu,
+            gradient: 'from-amber-500 to-orange-500'
         },
         {
-            title: 'Design d\'Interface Utilisateur',
-            description: 'Des interfaces intuitives et esthétiques qui améliorent l\'expérience utilisateur.',
+            title: 'Maintenance Préventive',
+            description: 'Entretien régulier pour prolonger la durée de vie de vos équipements.',
             features: [
-                'Audit UX/UI existant',
-                'Wireframes et prototypes',
-                'Design système cohérent',
-                'Animations et micro-interactions',
-                'Tests utilisateurs'
+                'Nettoyage interne complet',
+                'Vérification des composants',
+                'Optimisation des performances',
+                'Mises à jour logicielles',
+                'Contrats annuels'
             ],
-            icon: Layout,
+            icon: Axe,
             gradient: 'from-blue-500 to-cyan-500'
         },
         {
-            title: 'Supports Print & Digitaux',
-            description: 'Design graphique impactant pour vos supports de communication physiques et digitaux.',
+            title: 'Dépannage Réseau',
+            description: 'Résolution des problèmes de connectivité et configuration.',
             features: [
-                'Brochures et catalogues',
-                'Affiches et bannières',
-                'Présentations professionnelles',
-                'Réseaux sociaux',
-                'Packaging design'
+                'Diagnostic réseau complet',
+                'Configuration routeurs/switchs',
+                'Optimisation WiFi',
+                'Sécurisation du réseau',
+                'Câblage structuré'
             ],
-            icon: Image,
+            icon: Network,
             gradient: 'from-green-500 to-emerald-500'
         },
         {
-            title: 'Motion Design',
-            description: 'Donnez vie à votre marque avec des animations captivantes et narratives.',
+            title: 'Installation & Configuration',
+            description: 'Mise en service de nouveaux équipements et logiciels.',
             features: [
-                'Animations de logo',
-                'Motion graphics explicatifs',
-                'Micro-interactions UI',
-                'Transitions fluides',
-                'Vidéos promotionnelles'
+                'Installation poste de travail',
+                'Configuration logicielle',
+                'Migration de données',
+                'Sauvegarde initiale',
+                'Formation utilisateur'
             ],
-            icon: Film,
-            gradient: 'from-orange-500 to-amber-500'
+            icon: Settings,
+            gradient: 'from-purple-500 to-pink-500'
         }
     ];
 
-    // Processus de design
-    const processSteps = [
+    // Processus d'intervention
+    const interventionSteps = [
         {
-            title: "Découverte",
-            description: "Compréhension approfondie de votre marque, vos valeurs et vos objectifs",
-            icon: Eye
+            title: "Diagnostic",
+            description: "Analyse précise de la panne ou du besoin",
+            icon: Wrench
         },
         {
-            title: "Recherche",
-            description: "Analyse du marché, des tendances et de la concurrence",
-            icon: Users
+            title: "Devis",
+            description: "Proposition détaillée avec options de réparation",
+            icon: Axe
         },
         {
-            title: "Conceptualisation",
-            description: "Développement des concepts créatifs et directions artistiques",
-            icon: Palette
+            title: "Réparation",
+            description: "Intervention par nos techniciens certifiés",
+            icon: Cpu
         },
         {
-            title: "Design",
-            description: "Création des visuels et prototypes interactifs",
-            icon: Brush
-        },
-        {
-            title: "Validation",
-            description: "Tests utilisateurs et itérations pour perfectionnement",
+            title: "Test",
+            description: "Validation complète du bon fonctionnement",
             icon: Zap
         },
         {
             title: "Livraison",
-            description: "Fourniture des fichiers sources et guidelines",
-            icon: Layers
+            description: "Remise de l'équipement avec garantie",
+            icon: Shield
         }
     ];
 
-    // Outils de design
-    const designTools = [
-        { name: 'Figma', icon: '/images/figma.png', category: ['digital', 'branding'] },
-        { name: 'Adobe Photoshop', icon: '/images/photoshop.png', category: ['print', 'branding'] },
-        { name: 'Adobe Illustrator', icon: '/images/illustrator.png', category: ['branding', 'print'] },
-        { name: 'Adobe XD', icon: '/images/xd.png', category: ['digital'] },
-        { name: 'Sketch', icon: '/images/sketch.png', category: ['digital'] },
-        { name: 'After Effects', icon: '/images/after-effects.png', category: ['motion'] },
-        { name: 'Blender', icon: '/images/blender.png', category: ['motion'] },
-        { name: 'InVision', icon: '/images/invision.png', category: ['digital'] },
-        { name: 'Procreate', icon: '/images/procreate.png', category: ['branding', 'print'] },
-        { name: 'Principle', icon: '/images/principle.png', category: ['motion', 'digital'] }
+    // Équipements couverts
+    const coveredEquipment = [
+        { name: 'PC Fixes', icon: '/images/desktop.png' },
+        { name: 'PC Portables', icon: '/images/laptop.png' },
+        { name: 'Imprimantes', icon: '/images/printer.png' },
+        { name: 'Serveurs', icon: '/images/server.png' },
+        { name: 'Réseau', icon: '/images/network.png' },
+        { name: 'Périphériques', icon: '/images/peripherals.png' },
+        { name: 'Photocopieurs', icon: '/images/copier.png' },
+        { name: 'Tablettes', icon: '/images/tablet.png' },
+        { name: 'Smartphones', icon: '/images/smartphone.png' },
+        { name: 'Écrans', icon: '/images/monitor.png' }
     ];
 
     return (
         <div className={`min-h-screen ${getBgColor()} ${getTextColor()} transition-colors duration-300`}>
             <Head>
-                <title>Expertise en Design | Open Numeric</title>
-                <meta name="description" content="Découvrez notre expertise en design graphique, identité visuelle et expérience utilisateur." />
+                <title>Maintenance Informatique | Open Numeric</title>
+                <meta name="description" content="Services complets de maintenance, réparation et dépannage pour tous vos équipements informatiques." />
             </Head>
 
             {/* Hero Section */}
-            <section className="relative pt-14 pb-20 overflow-hidden">
+            <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 -z-10">
                     <div className={`absolute inset-0 opacity-10 ${theme === 'light' ? 'bg-gray-900' : 'bg-white'}`}></div>
                     <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,transparent_70%,black)]"></div>
@@ -221,12 +207,12 @@ const DesignPage = () => {
                         className="text-center"
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
-                                Expertise en Design Créatif
+                            <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">
+                                Maintenance Informatique Expert
                             </span>
                         </h1>
                         <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-                            Des solutions design impactantes qui racontent votre histoire et captivent votre audience.
+                            Réparation, dépannage et entretien pour tous vos équipements informatiques.
                         </p>
                     </motion.div>
 
@@ -237,12 +223,12 @@ const DesignPage = () => {
                         className="mt-16 flex justify-center"
                     >
                         <div className="relative w-full max-w-4xl h-64 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-30 blur-xl"></div>
+                                <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 opacity-30 blur-xl"></div>
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <Palette className="w-32 h-32 text-white opacity-80" />
+                                <Axe className="w-32 h-32 text-white opacity-80" />
                             </div>
                             <motion.div 
                                 animate={{ 
@@ -255,9 +241,9 @@ const DesignPage = () => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute top-1/4 left-1/4 w-16 h-16 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+                                className="absolute top-1/4 left-1/4 w-16 h-16 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
                             >
-                                <Type className="w-8 h-8 mx-auto mt-4 text-white" />
+                                <Wrench className="w-8 h-8 text-white" />
                             </motion.div>
                             <motion.div 
                                 animate={{ 
@@ -271,9 +257,9 @@ const DesignPage = () => {
                                     ease: "easeInOut",
                                     delay: 0.5
                                 }}
-                                className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+                                className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
                             >
-                                <Brush className="w-10 h-10 mx-auto mt-4 text-white" />
+                                <Cpu className="w-10 h-10 text-white" />
                             </motion.div>
                         </div>
                     </motion.div>
@@ -290,9 +276,9 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Domaines d'Expertise</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Services de Maintenance</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Une approche holistique du design pour couvrir tous vos besoins créatifs.
+                            Des solutions complètes pour tous vos besoins techniques.
                         </p>
                     </motion.div>
 
@@ -300,22 +286,23 @@ const DesignPage = () => {
                         <div className="inline-flex rounded-xl p-1" style={{
                             background: theme === 'light' ? 'rgba(243, 244, 246, 0.8)' : 'rgba(31, 41, 55, 0.8)'
                         }}>
-                            {Object.keys(designCategories).map((category) => (
+                            {Object.keys(maintenanceCategories).map((category) => (
                                 <button
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
                                     className={`px-5 py-3 rounded-lg font-medium capitalize transition-all mx-1 ${activeCategory === category
-                                        ? `bg-gradient-to-r ${theme === 'light' ? 'from-purple-500 to-pink-500' : 'from-purple-400 to-pink-400'} text-white shadow-lg`
+                                        ? `bg-gradient-to-r ${theme === 'light' ? 'from-amber-500 to-orange-500' : 'from-amber-400 to-orange-400'} text-white shadow-lg`
                                         : `${theme === 'light' ? 'bg-white/0 hover:bg-gray-100 text-gray-700' : 'bg-gray-900/0 hover:bg-gray-800 text-gray-300'}`}`}
                                 >
-                                    {category}
+                                    {category === 'repair' ? 'Réparation' : 
+                                     category === 'network' ? 'Réseau' : 'Maintenance Préventive'}
                                 </button>
                             ))}
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {designCategories[activeCategory as keyof typeof designCategories].map((item, index) => (
+                        {maintenanceCategories[activeCategory as keyof typeof maintenanceCategories].map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -325,7 +312,7 @@ const DesignPage = () => {
                                 whileHover={{ y: -5 }}
                                 className={`p-6 rounded-xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center text-center`}
                             >
-                                <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4`}>
+                                <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-amber-500 to-orange-500 text-white mb-4`}>
                                     <item.icon className="w-8 h-8" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{item.name}</h3>
@@ -346,9 +333,9 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Services de Design</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Offres de Maintenance</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Des solutions créatives sur mesure pour chaque besoin.
+                            Des interventions rapides et efficaces par des techniciens certifiés.
                         </p>
                     </motion.div>
 
@@ -386,7 +373,7 @@ const DesignPage = () => {
                                                 <ul className="space-y-2 mb-6">
                                                     {service.features.map((feature, i) => (
                                                         <li key={i} className="flex items-start">
-                                                            <svg className={`w-5 h-5 mt-0.5 mr-2 flex-shrink-0 ${theme === 'light' ? 'text-purple-500' : 'text-purple-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <svg className={`w-5 h-5 mt-0.5 mr-2 flex-shrink-0 ${theme === 'light' ? 'text-amber-500' : 'text-amber-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                             <span>{feature}</span>
@@ -424,14 +411,14 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus Créatif</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus d'Intervention</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Une méthodologie éprouvée pour des résultats exceptionnels.
+                            Une méthodologie rigoureuse pour des réparations efficaces.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {processSteps.map((step, index) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                        {interventionSteps.map((step, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -439,9 +426,9 @@ const DesignPage = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -5 }}
-                                className={`p-6 rounded-2xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg`}
+                                className={`p-6 rounded-2xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center text-center`}
                             >
-                                <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4`}>
+                                <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-amber-500 to-orange-500 text-white mb-4`}>
                                     <step.icon className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{step.title}</h3>
@@ -452,7 +439,7 @@ const DesignPage = () => {
                 </div>
             </section>
 
-            {/* Tools Section */}
+            {/* Equipment Section */}
             <section className={`py-16 ${theme === 'light' ? 'bg-gray-50' : 'bg-gray-800/20'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -462,14 +449,14 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Outils de Création</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Équipements Pris en Charge</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Nous utilisons les meilleurs outils du marché pour des résultats optimaux.
+                            Nous intervenons sur tous types d'équipements informatiques.
                         </p>
                     </motion.div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        {designTools.map((tool, index) => (
+                        {coveredEquipment.map((equipment, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -480,9 +467,9 @@ const DesignPage = () => {
                                 className={`p-4 rounded-xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center`}
                             >
                                 <div className="w-16 h-16 mb-3 flex items-center justify-center">
-                                    <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
+                                    <img src={equipment.icon} alt={equipment.name} className="w-full h-full object-contain" />
                                 </div>
-                                <h3 className="text-lg font-medium">{tool.name}</h3>
+                                <h3 className="text-lg font-medium">{equipment.name}</h3>
                             </motion.div>
                         ))}
                     </div>
@@ -499,23 +486,23 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className={`p-8 rounded-2xl shadow-xl ${getCardBg()} border ${getBorderColor()} relative overflow-hidden`}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 -z-10"></div>
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Prêt à donner vie à votre vision ?</h2>
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 -z-10"></div>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Besoin d'une intervention rapide ?</h2>
                         <p className={`text-xl mb-8 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Contactez-nous pour discuter de vos besoins en design.
+                            Notre équipe est disponible pour résoudre vos problèmes techniques.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <button className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center">
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
-                                Discuter avec un designer
+                                Demander un dépannage
                             </button>
                             <button className={`px-6 py-3 rounded-lg font-medium ${theme === 'light' ? 'bg-white hover:bg-gray-100 border border-gray-200' : 'bg-gray-800 hover:bg-gray-700 border border-gray-700'} transition-all flex items-center justify-center`}>
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
-                                Demander un devis
+                                Souscrire un contrat
                             </button>
                         </div>
                     </motion.div>
@@ -525,4 +512,4 @@ const DesignPage = () => {
     );
 };
 
-export default DesignPage;
+export default MaintenancePage;

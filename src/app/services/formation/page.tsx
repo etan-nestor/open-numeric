@@ -4,26 +4,24 @@ import { useState } from 'react';
 import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
-    Palette,
-    Brush,
-    Layout,
-    Type,
-    Image,
-    Film,
+    BookOpen,
+    GraduationCap,
+    Code,
     Smartphone,
-    Monitor,
-    Eye,
+    Server,
+    Cloud,
     Users,
-    Zap,
-    Layers,
-    Figma,
-    PenTool
+    Globe,
+    Book,
+    Presentation,
+    Monitor,
+    Database
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const DesignPage = () => {
+const TrainingPage = () => {
     const { theme } = useTheme();
-    const [activeCategory, setActiveCategory] = useState('branding');
+    const [activeCategory, setActiveCategory] = useState('tech');
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
     // Couleurs dynamiques en fonction du thème
@@ -67,143 +65,126 @@ const DesignPage = () => {
         }
     };
 
-    // Catégories de design
-    const designCategories = {
-        branding: [
-            { name: 'Identité visuelle', icon: Palette, description: 'Création d\'une identité unique et cohérente pour votre marque.' },
-            { name: 'Charte graphique', icon: Brush, description: 'Guide complet pour une application harmonieuse de votre identité.' },
-            { name: 'Logo design', icon: Type, description: 'Conception de logos mémorables et évocateurs de vos valeurs.' },
-            { name: 'Brand guidelines', icon: Layers, description: 'Manuel d\'utilisation de votre identité visuelle.' },
+    // Catégories de formation
+    const trainingCategories = {
+        tech: [
+            { name: 'Formations Frontend', icon: Monitor, description: 'Maîtrisez React, Angular, Vue et les frameworks modernes.' },
+            { name: 'Formations Backend', icon: Server, description: 'Node.js, Python, Java et architectures serveur.' },
+            { name: 'Mobile & Cross-platform', icon: Smartphone, description: 'Développez des apps avec React Native, Flutter.' },
+            { name: 'Cloud & DevOps', icon: Cloud, description: 'Docker, Kubernetes, CI/CD et déploiements cloud.' },
         ],
-        print: [
-            { name: 'Brochures & Catalogues', icon: Image, description: 'Supports print attractifs et efficaces.' },
-            { name: 'Affiches & Bannières', icon: PenTool, description: 'Designs percutants pour votre communication visuelle.' },
-            { name: 'Cartes de visite', icon: Layout, description: 'Premier contact tangible avec votre marque.' },
-            { name: 'Packaging', icon: Layers, description: 'Design d\'emballage qui raconte votre histoire.' },
-        ],
-        digital: [
-            { name: 'Interfaces utilisateur', icon: Monitor, description: 'UI intuitives et esthétiques pour vos applications.' },
-            { name: 'Design responsive', icon: Smartphone, description: 'Adaptation parfaite à tous les devices.' },
-            { name: 'Prototypes interactifs', icon: Figma, description: 'Maquettes cliquables pour valider l\'expérience.' },
-            { name: 'Design système', icon: Layers, description: 'Bibliothèque de composants cohérente et scalable.' },
-        ],
-        motion: [
-            { name: 'Animations UI', icon: Zap, description: 'Micro-interactions pour une expérience dynamique.' },
-            { name: 'Motion graphics', icon: Film, description: 'Contenu vidéo animé pour captiver votre audience.' },
-            { name: 'Transitions', icon: Eye, description: 'Effets visuels fluides entre les états.' },
-            { name: 'Brand animations', icon: Palette, description: 'Identité animée pour une marque vivante.' },
+        education: [
+            { name: 'Initiation au codage', icon: Code, description: 'Découverte ludique de la programmation pour débutants.' },
+            { name: 'Outils collaboratifs', icon: Users, description: 'Maîtrise des plateformes éducatives numériques.' },
+            { name: 'Gestion de classe numérique', icon: Book, description: 'Optimisez votre enseignement avec le numérique.' },
+            { name: 'Ressources pédagogiques', icon: Presentation, description: 'Création de contenus éducatifs interactifs.' },
         ]
     };
 
-    // Services de design
-    const services = [
+    // Programmes de formation
+    const programs = [
         {
-            title: 'Identité Visuelle Complète',
-            description: 'Nous créons une identité visuelle forte et cohérente qui reflète l\'essence de votre marque.',
+            title: 'Formations Frontend Avancées',
+            description: 'Maîtrise complète des écosystèmes React, Angular et Vue avec les bonnes pratiques.',
             features: [
-                'Recherche et stratégie de marque',
-                'Direction artistique',
-                'Développement de logo',
-                'Palette de couleurs et typographie',
-                'Applications sur différents supports'
+                'React/Next.js (SSR, ISR, SSG)',
+                'State management avancé',
+                'Performance optimisation',
+                'Tests automatisés',
+                'Architecture modulaire'
             ],
-            icon: Palette,
-            gradient: 'from-purple-500 to-pink-500'
-        },
-        {
-            title: 'Design d\'Interface Utilisateur',
-            description: 'Des interfaces intuitives et esthétiques qui améliorent l\'expérience utilisateur.',
-            features: [
-                'Audit UX/UI existant',
-                'Wireframes et prototypes',
-                'Design système cohérent',
-                'Animations et micro-interactions',
-                'Tests utilisateurs'
-            ],
-            icon: Layout,
+            icon: Monitor,
             gradient: 'from-blue-500 to-cyan-500'
         },
         {
-            title: 'Supports Print & Digitaux',
-            description: 'Design graphique impactant pour vos supports de communication physiques et digitaux.',
+            title: 'Ateliers Backend & API',
+            description: 'Développement d\'APIs robustes et sécurisées avec les technologies modernes.',
             features: [
-                'Brochures et catalogues',
-                'Affiches et bannières',
-                'Présentations professionnelles',
-                'Réseaux sociaux',
-                'Packaging design'
+                'Node.js/NestJS/Express',
+                'GraphQL & REST',
+                'Authentification JWT/OAuth',
+                'Bases de données SQL/NoSQL',
+                'Optimisation des performances'
             ],
-            icon: Image,
+            icon: Server,
             gradient: 'from-green-500 to-emerald-500'
         },
         {
-            title: 'Motion Design',
-            description: 'Donnez vie à votre marque avec des animations captivantes et narratives.',
+            title: 'Mobile Cross-platform',
+            description: 'Développement d\'applications natives avec React Native et Flutter.',
             features: [
-                'Animations de logo',
-                'Motion graphics explicatifs',
-                'Micro-interactions UI',
-                'Transitions fluides',
-                'Vidéos promotionnelles'
+                'Architecture des apps mobiles',
+                'Accès aux APIs natives',
+                'Animations fluides',
+                'Publication sur les stores',
+                'Tests sur devices'
             ],
-            icon: Film,
+            icon: Smartphone,
+            gradient: 'from-purple-500 to-pink-500'
+        },
+        {
+            title: 'Parcours DevOps',
+            description: 'Automatisation des déploiements et infrastructure cloud scalable.',
+            features: [
+                'Docker & Kubernetes',
+                'CI/CD (GitHub Actions, GitLab)',
+                'Infrastructure as Code',
+                'Monitoring & logging',
+                'Sécurité cloud'
+            ],
+            icon: Cloud,
             gradient: 'from-orange-500 to-amber-500'
         }
     ];
 
-    // Processus de design
-    const processSteps = [
+    // Méthodologie pédagogique
+    const methodology = [
         {
-            title: "Découverte",
-            description: "Compréhension approfondie de votre marque, vos valeurs et vos objectifs",
-            icon: Eye
+            title: "Évaluation des besoins",
+            description: "Analyse des prérequis et objectifs d'apprentissage",
+            icon: BookOpen
         },
         {
-            title: "Recherche",
-            description: "Analyse du marché, des tendances et de la concurrence",
+            title: "Contenu sur mesure",
+            description: "Adaptation du programme aux besoins spécifiques",
+            icon: GraduationCap
+        },
+        {
+            title: "Apprentissage pratique",
+            description: "Exercices concrets et projets réels",
+            icon: Code
+        },
+        {
+            title: "Support continu",
+            description: "Ressources et accompagnement post-formation",
             icon: Users
         },
         {
-            title: "Conceptualisation",
-            description: "Développement des concepts créatifs et directions artistiques",
-            icon: Palette
-        },
-        {
-            title: "Design",
-            description: "Création des visuels et prototypes interactifs",
-            icon: Brush
-        },
-        {
-            title: "Validation",
-            description: "Tests utilisateurs et itérations pour perfectionnement",
-            icon: Zap
-        },
-        {
-            title: "Livraison",
-            description: "Fourniture des fichiers sources et guidelines",
-            icon: Layers
+            title: "Validation des acquis",
+            description: "Certification et évaluation des compétences",
+            icon: Presentation
         }
     ];
 
-    // Outils de design
-    const designTools = [
-        { name: 'Figma', icon: '/images/figma.png', category: ['digital', 'branding'] },
-        { name: 'Adobe Photoshop', icon: '/images/photoshop.png', category: ['print', 'branding'] },
-        { name: 'Adobe Illustrator', icon: '/images/illustrator.png', category: ['branding', 'print'] },
-        { name: 'Adobe XD', icon: '/images/xd.png', category: ['digital'] },
-        { name: 'Sketch', icon: '/images/sketch.png', category: ['digital'] },
-        { name: 'After Effects', icon: '/images/after-effects.png', category: ['motion'] },
-        { name: 'Blender', icon: '/images/blender.png', category: ['motion'] },
-        { name: 'InVision', icon: '/images/invision.png', category: ['digital'] },
-        { name: 'Procreate', icon: '/images/procreate.png', category: ['branding', 'print'] },
-        { name: 'Principle', icon: '/images/principle.png', category: ['motion', 'digital'] }
+    // Technologies couvertes
+    const techStack = [
+        { name: 'React', icon: '/images/react.png' },
+        { name: 'Node.js', icon: '/images/node.png' },
+        { name: 'Flutter', icon: '/images/flutter.png' },
+        { name: 'Docker', icon: '/images/docker.png' },
+        { name: 'Python', icon: '/images/python.png' },
+        { name: 'Angular', icon: '/images/angular1.png' },
+        { name: 'Kubernetes', icon: '/images/kubernetes.png' },
+        { name: 'AWS', icon: '/images/aws.png' },
+        { name: 'GraphQL', icon: '/images/graphql.png' },
+        { name: 'Firebase', icon: '/images/firebase.png' }
     ];
 
     return (
         <div className={`min-h-screen ${getBgColor()} ${getTextColor()} transition-colors duration-300`}>
             <Head>
-                <title>Expertise en Design | Open Numeric</title>
-                <meta name="description" content="Découvrez notre expertise en design graphique, identité visuelle et expérience utilisateur." />
+                <title>Formations en Informatique | Open Numeric</title>
+                <meta name="description" content="Découvrez nos programmes de formation en développement web, mobile et technologies cloud." />
             </Head>
 
             {/* Hero Section */}
@@ -221,12 +202,12 @@ const DesignPage = () => {
                         className="text-center"
                     >
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                            <span className="bg-gradient-to-r from-pink-400 to-purple-500 bg-clip-text text-transparent">
-                                Expertise en Design Créatif
+                            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                                Formations Expertes en Tech
                             </span>
                         </h1>
                         <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-                            Des solutions design impactantes qui racontent votre histoire et captivent votre audience.
+                            Montez en compétences avec nos programmes complets et formateurs expérimentés.
                         </p>
                     </motion.div>
 
@@ -237,43 +218,43 @@ const DesignPage = () => {
                         className="mt-16 flex justify-center"
                     >
                         <div className="relative w-full max-w-4xl h-64 rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
-                            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20"></div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 opacity-30 blur-xl"></div>
+                                <div className="relative w-48 h-48 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 opacity-30 blur-xl"></div>
                             </div>
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <Palette className="w-32 h-32 text-white opacity-80" />
+                                <Code className="w-32 h-32 text-white opacity-80" />
                             </div>
-                            <motion.div 
-                                animate={{ 
+                            <motion.div
+                                animate={{
                                     x: [0, 20, 0, -20, 0],
                                     y: [0, 10, 0, -10, 0],
                                     rotate: [0, 5, 0, -5, 0]
                                 }}
-                                transition={{ 
+                                transition={{
                                     duration: 15,
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute top-1/4 left-1/4 w-16 h-16 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+                                className="absolute top-1/4 left-1/4 w-16 h-16 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
                             >
-                                <Type className="w-8 h-8 mx-auto mt-4 text-white" />
+                                <BookOpen className="w-8 h-8 text-white" />
                             </motion.div>
-                            <motion.div 
-                                animate={{ 
+                            <motion.div
+                                animate={{
                                     x: [0, -15, 0, 15, 0],
                                     y: [0, -15, 0, 15, 0],
                                     rotate: [0, -3, 0, 3, 0]
                                 }}
-                                transition={{ 
+                                transition={{
                                     duration: 12,
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                     delay: 0.5
                                 }}
-                                className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20"
+                                className="absolute bottom-1/4 right-1/4 w-20 h-20 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
                             >
-                                <Brush className="w-10 h-10 mx-auto mt-4 text-white" />
+                                <GraduationCap className="w-10 h-10 text-white" />
                             </motion.div>
                         </div>
                     </motion.div>
@@ -290,9 +271,9 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Domaines d'Expertise</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Domaines de Formation</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Une approche holistique du design pour couvrir tous vos besoins créatifs.
+                            Des programmes adaptés à tous les niveaux et besoins.
                         </p>
                     </motion.div>
 
@@ -300,22 +281,22 @@ const DesignPage = () => {
                         <div className="inline-flex rounded-xl p-1" style={{
                             background: theme === 'light' ? 'rgba(243, 244, 246, 0.8)' : 'rgba(31, 41, 55, 0.8)'
                         }}>
-                            {Object.keys(designCategories).map((category) => (
+                            {Object.keys(trainingCategories).map((category) => (
                                 <button
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
                                     className={`px-5 py-3 rounded-lg font-medium capitalize transition-all mx-1 ${activeCategory === category
-                                        ? `bg-gradient-to-r ${theme === 'light' ? 'from-purple-500 to-pink-500' : 'from-purple-400 to-pink-400'} text-white shadow-lg`
+                                        ? `bg-gradient-to-r ${theme === 'light' ? 'from-cyan-500 to-blue-500' : 'from-cyan-400 to-blue-400'} text-white shadow-lg`
                                         : `${theme === 'light' ? 'bg-white/0 hover:bg-gray-100 text-gray-700' : 'bg-gray-900/0 hover:bg-gray-800 text-gray-300'}`}`}
                                 >
-                                    {category}
+                                    {category === 'tech' ? 'Formations Tech' : 'Éducation Numérique'}
                                 </button>
                             ))}
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {designCategories[activeCategory as keyof typeof designCategories].map((item, index) => (
+                        {trainingCategories[activeCategory as keyof typeof trainingCategories].map((item, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -325,7 +306,7 @@ const DesignPage = () => {
                                 whileHover={{ y: -5 }}
                                 className={`p-6 rounded-xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center text-center`}
                             >
-                                <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4`}>
+                                <div className={`w-16 h-16 rounded-full flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-500 text-white mb-4`}>
                                     <item.icon className="w-8 h-8" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{item.name}</h3>
@@ -336,7 +317,7 @@ const DesignPage = () => {
                 </div>
             </section>
 
-            {/* Services Section */}
+            {/* Programs Section */}
             <section className={`py-16 ${theme === 'light' ? 'bg-gray-50' : 'bg-gray-800/20'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -346,14 +327,14 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Services de Design</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Programmes Tech</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Des solutions créatives sur mesure pour chaque besoin.
+                            Des formations intensives pour maîtriser les technologies modernes.
                         </p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {services.map((service, index) => (
+                        {programs.map((program, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
@@ -368,12 +349,12 @@ const DesignPage = () => {
                                 <div className="absolute inset-0 bg-gradient-to-br opacity-10 from-transparent to-transparent"></div>
                                 <div className="p-8 relative">
                                     <div className="flex items-start">
-                                        <div className={`text-4xl mr-6 flex-shrink-0 bg-gradient-to-br ${service.gradient} rounded-lg w-16 h-16 flex items-center justify-center text-white`}>
-                                            <service.icon className="w-8 h-8" />
+                                        <div className={`text-4xl mr-6 flex-shrink-0 bg-gradient-to-br ${program.gradient} rounded-lg w-16 h-16 flex items-center justify-center text-white`}>
+                                            <program.icon className="w-8 h-8" />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                                            <p className={`mb-4 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>{service.description}</p>
+                                            <h3 className="text-2xl font-bold mb-2">{program.title}</h3>
+                                            <p className={`mb-4 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>{program.description}</p>
 
                                             <motion.div
                                                 initial={{ height: 0, opacity: 0 }}
@@ -384,9 +365,9 @@ const DesignPage = () => {
                                                 className="overflow-hidden"
                                             >
                                                 <ul className="space-y-2 mb-6">
-                                                    {service.features.map((feature, i) => (
+                                                    {program.features.map((feature, i) => (
                                                         <li key={i} className="flex items-start">
-                                                            <svg className={`w-5 h-5 mt-0.5 mr-2 flex-shrink-0 ${theme === 'light' ? 'text-purple-500' : 'text-purple-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <svg className={`w-5 h-5 mt-0.5 mr-2 flex-shrink-0 ${theme === 'light' ? 'text-cyan-500' : 'text-cyan-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                                             </svg>
                                                             <span>{feature}</span>
@@ -400,7 +381,7 @@ const DesignPage = () => {
                                                     ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
                                                     : 'bg-gray-800 hover:bg-gray-700 text-gray-300'} transition-all flex items-center`}
                                             >
-                                                <span>En savoir plus</span>
+                                                <span>Voir le programme détaillé</span>
                                                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                                 </svg>
@@ -414,7 +395,7 @@ const DesignPage = () => {
                 </div>
             </section>
 
-            {/* Process Section */}
+            {/* Methodology Section */}
             <section className="py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -424,14 +405,14 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus Créatif</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Méthodologie Pédagogique</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Une méthodologie éprouvée pour des résultats exceptionnels.
+                            Une approche pratique et adaptée pour un apprentissage efficace.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {processSteps.map((step, index) => (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                        {methodology.map((step, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -439,9 +420,9 @@ const DesignPage = () => {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                                 whileHover={{ y: -5 }}
-                                className={`p-6 rounded-2xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg`}
+                                className={`p-6 rounded-2xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center text-center`}
                             >
-                                <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4`}>
+                                <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-500 text-white mb-4`}>
                                     <step.icon className="w-6 h-6" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-2">{step.title}</h3>
@@ -452,7 +433,7 @@ const DesignPage = () => {
                 </div>
             </section>
 
-            {/* Tools Section */}
+            {/* Tech Stack Section */}
             <section className={`py-16 ${theme === 'light' ? 'bg-gray-50' : 'bg-gray-800/20'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
@@ -462,14 +443,14 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Outils de Création</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Technologies Couvertes</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Nous utilisons les meilleurs outils du marché pour des résultats optimaux.
+                            Nous formons sur les technologies les plus demandées du marché.
                         </p>
                     </motion.div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                        {designTools.map((tool, index) => (
+                        {techStack.map((tech, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 20 }}
@@ -480,9 +461,9 @@ const DesignPage = () => {
                                 className={`p-4 rounded-xl border ${getBorderColor()} ${getCardBg()} transition-all duration-300 hover:shadow-lg flex flex-col items-center`}
                             >
                                 <div className="w-16 h-16 mb-3 flex items-center justify-center">
-                                    <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain" />
+                                    <img src={tech.icon} alt={tech.name} className="w-full h-full object-contain" />
                                 </div>
-                                <h3 className="text-lg font-medium">{tool.name}</h3>
+                                <h3 className="text-lg font-medium">{tech.name}</h3>
                             </motion.div>
                         ))}
                     </div>
@@ -499,23 +480,23 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className={`p-8 rounded-2xl shadow-xl ${getCardBg()} border ${getBorderColor()} relative overflow-hidden`}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 -z-10"></div>
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Prêt à donner vie à votre vision ?</h2>
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 -z-10"></div>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Prêt à développer vos compétences ?</h2>
                         <p className={`text-xl mb-8 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Contactez-nous pour discuter de vos besoins en design.
+                            Contactez-nous pour discuter de vos besoins en formation.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
-                            <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-medium rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center">
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
-                                Discuter avec un designer
+                                Discuter avec un formateur
                             </button>
                             <button className={`px-6 py-3 rounded-lg font-medium ${theme === 'light' ? 'bg-white hover:bg-gray-100 border border-gray-200' : 'bg-gray-800 hover:bg-gray-700 border border-gray-700'} transition-all flex items-center justify-center`}>
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
-                                Demander un devis
+                                Demander un programme
                             </button>
                         </div>
                     </motion.div>
@@ -525,4 +506,4 @@ const DesignPage = () => {
     );
 };
 
-export default DesignPage;
+export default TrainingPage;
