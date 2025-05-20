@@ -5,13 +5,26 @@ import { useTheme } from '../components/context/ThemeContext';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Interface pour les couleurs de catégories
+interface CategoryColors {
+  [key: string]: {
+    light: string;
+    dark: string;
+  };
+  development: { light: string; dark: string };
+  training: { light: string; dark: string };
+  maintenance: { light: string; dark: string };
+  sales: { light: string; dark: string };
+  design: { light: string; dark: string };
+}
+
 const ServicesPage = () => {
   const { theme } = useTheme();
   const [activeTab, setActiveTab] = useState('development');
   const [hoveredService, setHoveredService] = useState<number | null>(null);
 
-  // Couleurs pour chaque catégorie
-  const categoryColors = {
+  // Couleurs pour chaque catégorie avec le bon typage
+  const categoryColors: CategoryColors = {
     development: { light: 'from-blue-500 to-blue-600', dark: 'from-blue-400 to-blue-500' },
     training: { light: 'from-purple-500 to-purple-600', dark: 'from-purple-400 to-purple-500' },
     maintenance: { light: 'from-orange-500 to-orange-600', dark: 'from-orange-400 to-orange-500' },
@@ -292,7 +305,7 @@ const ServicesPage = () => {
                   key={category.id}
                   onClick={() => setActiveTab(category.id)}
                   className={`px-5 py-3 rounded-lg font-medium flex items-center whitespace-nowrap transition-all mx-1 ${activeTab === category.id 
-                    ? `bg-gradient-to-r ${theme === 'light' ? categoryColors[category.id].light : categoryColors[category.id].dark} text-white shadow-lg` 
+                    ? `bg-gradient-to-r ${theme === 'light' ? categoryColors[category.id as keyof CategoryColors].light : categoryColors[category.id as keyof CategoryColors].dark} text-white shadow-lg` 
                     : `${theme === 'light' ? 'bg-white/0 hover:bg-gray-100 text-gray-700' : 'bg-gray-900/0 hover:bg-gray-800 text-gray-300'}`}`}
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -328,7 +341,7 @@ const ServicesPage = () => {
                       transition={{ delay: 0.2 }}
                       className="text-3xl md:text-4xl font-bold mb-4"
                     >
-                      <span className={`bg-gradient-to-r ${theme === 'light' ? categoryColors[category.id].light : categoryColors[category.id].dark} bg-clip-text text-transparent`}>
+                      <span className={`bg-gradient-to-r ${theme === 'light' ? categoryColors[category.id as keyof CategoryColors].light : categoryColors[category.id as keyof CategoryColors].dark} bg-clip-text text-transparent`}>
                         {category.name}
                       </span>
                     </motion.h2>

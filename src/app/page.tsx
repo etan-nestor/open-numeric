@@ -160,12 +160,12 @@ export default function Home() {
     <div className={getSectionClasses()}>
       <Head>
         <title>Open Numeric - Solutions Numériques Complètes</title>
-        <meta name="description" content="Open Numeric propose des services de développement, design, formation et maintenance pour vos besoins numériques." />
+        <meta name="description" content="Open Numeric propose des services de développement, design, formation et maintenance et vente de matériels pour tout vos besoins numériques." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <section className="relative pt-10 pb-20 md:pt-14 md:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900 to-gray-950"></div>
           <div className="absolute inset-0 opacity-20">
@@ -206,6 +206,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* Services Section */}
