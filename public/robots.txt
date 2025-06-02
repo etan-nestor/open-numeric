@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://opennumeric.com
+
+# Sitemaps
+Sitemap: https://opennumeric.com/sitemap.xml

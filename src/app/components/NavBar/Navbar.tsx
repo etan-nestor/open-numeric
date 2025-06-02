@@ -20,11 +20,14 @@ export default function Navbar() {
     setOpenSubmenu(openSubmenu === menu ? null : menu);
   };
 
-  // Effet pour fermer le menu thème quand on clique ailleurs
+  // Effet pour fermer les menus quand on clique ailleurs
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!(event.target as Element).closest('.theme-selector')) {
         setIsThemeMenuOpen(false);
+      }
+      if (!(event.target as Element).closest('.mobile-menu')) {
+        setIsOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -106,6 +109,12 @@ export default function Navbar() {
     }
   };
 
+  const handleThemeChange = (themeName: string) => {
+    changeTheme(themeName as any);
+    setIsThemeMenuOpen(false);
+    setIsOpen(false); // Fermer le menu mobile après sélection
+  };
+
   return (
     <nav className={getNavbarClasses()}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -129,10 +138,12 @@ export default function Navbar() {
                 href="/" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/')}`}
               >
-                Accueil
-                {pathname === '/' && (
-                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
-                )}
+                <div className="relative">
+                  Accueil
+                  {pathname === '/' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
               </Link>
               
               <div 
@@ -222,30 +233,36 @@ export default function Navbar() {
                 href="/portfolio" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/portfolio')}`}
               >
-                Portfolio
-                {pathname === '/portfolio' && (
-                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
-                )}
+                <div className="relative">
+                  Portfolio
+                  {pathname === '/portfolio' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
               </Link>
               
               <Link 
                 href="/blog" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/blog')}`}
               >
-                Blog
-                {pathname === '/blog' && (
-                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
-                )}
+                <div className="relative">
+                  Blog
+                  {pathname === '/blog' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
               </Link>
               
               <Link 
                 href="/contact" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/contact')}`}
               >
-                Contact
-                {pathname === '/contact' && (
-                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
-                )}
+                <div className="relative">
+                  Contact
+                  {pathname === '/contact' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
               </Link>
             </div>
 
@@ -287,7 +304,7 @@ export default function Navbar() {
                     {themes.map((t) => (
                       <button
                         key={t.name}
-                        onClick={() => changeTheme(t.name as any)}
+                        onClick={() => handleThemeChange(t.name)}
                         className={`w-full flex items-center px-4 py-3 text-sm ${t.text} hover:bg-opacity-20 hover:bg-white transition-colors duration-200`}
                       >
                         <span className={`h-3 w-3 rounded-full mr-3 ${t.color}`}></span>
@@ -364,7 +381,13 @@ export default function Navbar() {
       </div>
 
       {/* Menu mobile ouvert */}
-      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden shadow-xl ${theme === 'light' ? 'bg-white' : theme === 'violet-dark' ? 'bg-violet-800' : theme === 'pink-dark' ? 'bg-pink-800' : theme === 'blue-dark' ? 'bg-blue-800' : 'bg-gray-800'}`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden shadow-xl mobile-menu ${
+        theme === 'light' ? 'bg-white' : 
+        theme === 'violet-dark' ? 'bg-violet-800' : 
+        theme === 'pink-dark' ? 'bg-pink-800' : 
+        theme === 'blue-dark' ? 'bg-blue-800' : 
+        'bg-gray-800'
+      }`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link 
             href="/" 
@@ -397,35 +420,65 @@ export default function Navbar() {
             <div className={`mt-2 pl-4 space-y-1 ${openSubmenu === 'mobile-services' ? 'block' : 'hidden'}`}>
               <Link 
                 href="/services/developpement" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 'text-gray-400 hover:bg-gray-700'}`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'text-violet-200 hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'text-pink-200 hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'text-blue-200 hover:bg-blue-700' :
+                  'text-gray-300 hover:bg-gray-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Développement
               </Link>
               <Link 
                 href="/services/design" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 'text-gray-400 hover:bg-gray-700'}`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'text-violet-200 hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'text-pink-200 hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'text-blue-200 hover:bg-blue-700' :
+                  'text-gray-300 hover:bg-gray-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Design
               </Link>
               <Link 
                 href="/services/formation" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 'text-gray-400 hover:bg-gray-700'}`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'text-violet-200 hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'text-pink-200 hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'text-blue-200 hover:bg-blue-700' :
+                  'text-gray-300 hover:bg-gray-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Formations
               </Link>
               <Link 
                 href="/services/maintenance" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 'text-gray-400 hover:bg-gray-700'}`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'text-violet-200 hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'text-pink-200 hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'text-blue-200 hover:bg-blue-700' :
+                  'text-gray-300 hover:bg-gray-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Maintenance
               </Link>
               <Link 
                 href="/services/vente" 
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 'text-gray-400 hover:bg-gray-700'}`}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  theme === 'light' ? 'text-gray-600 hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'text-violet-200 hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'text-pink-200 hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'text-blue-200 hover:bg-blue-700' :
+                  'text-gray-300 hover:bg-gray-700'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Vente Matériel
@@ -484,19 +537,32 @@ export default function Navbar() {
 
       {/* Menu thème mobile ouvert */}
       {isThemeMenuOpen && (
-        <div className={`md:hidden shadow-xl p-4 ${theme === 'light' ? 'bg-white' : theme === 'violet-dark' ? 'bg-violet-800' : theme === 'pink-dark' ? 'bg-pink-800' : theme === 'blue-dark' ? 'bg-blue-800' : 'bg-gray-800'}`}>
-          <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'}`}>
+        <div className={`md:hidden shadow-xl p-4 ${
+          theme === 'light' ? 'bg-white' : 
+          theme === 'violet-dark' ? 'bg-violet-800' : 
+          theme === 'pink-dark' ? 'bg-pink-800' : 
+          theme === 'blue-dark' ? 'bg-blue-800' : 
+          'bg-gray-800'
+        }`}>
+          <div className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
+            theme === 'light' ? 'text-gray-500' : 'text-gray-400'
+          }`}>
             Thèmes
           </div>
           <div className="grid grid-cols-2 gap-2">
             {themes.map((t) => (
               <button
                 key={t.name}
-                onClick={() => {
-                  changeTheme(t.name as any);
-                  setIsOpen(false);
-                }}
-                className={`flex items-center px-4 py-3 rounded-lg ${t.text} hover:bg-opacity-20 hover:bg-white transition-colors duration-200`}
+                onClick={() => handleThemeChange(t.name)}
+                className={`flex items-center px-4 py-3 rounded-lg ${
+                  t.text
+                } ${
+                  theme === 'light' ? 'hover:bg-gray-100' : 
+                  theme === 'violet-dark' ? 'hover:bg-violet-700' :
+                  theme === 'pink-dark' ? 'hover:bg-pink-700' :
+                  theme === 'blue-dark' ? 'hover:bg-blue-700' :
+                  'hover:bg-gray-700'
+                } transition-colors duration-200`}
               >
                 <span className={`h-3 w-3 rounded-full mr-3 ${t.color}`}></span>
                 {t.name.replace('-', ' ')}
