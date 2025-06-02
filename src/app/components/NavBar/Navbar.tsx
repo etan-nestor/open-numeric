@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 const logo = require('../../images/logo.jpg');
 
@@ -13,6 +14,7 @@ export default function Navbar() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
   const [isHoveringTheme, setIsHoveringTheme] = useState(false);
+  const pathname = usePathname();
 
   const toggleSubmenu = (menu: string) => {
     setOpenSubmenu(openSubmenu === menu ? null : menu);
@@ -31,11 +33,11 @@ export default function Navbar() {
 
   // Couleurs des thèmes pour le sélecteur
   const themes = [
-    { name: 'light', color: 'bg-yellow-200', text: 'text-yellow-800' },
-    { name: 'dark', color: 'bg-gray-900', text: 'text-white' },
-    { name: 'violet-dark', color: 'bg-violet-900', text: 'text-violet-100' },
-    { name: 'pink-dark', color: 'bg-pink-900', text: 'text-pink-100' },
-    { name: 'blue-dark', color: 'bg-blue-900', text: 'text-blue-100' },
+    { name: 'light', color: 'bg-yellow-200', text: 'text-yellow-400' },
+    { name: 'dark', color: 'bg-gray-900', text: 'text-gray-400' },
+    { name: 'violet-dark', color: 'bg-violet-900', text: 'text-violet-400' },
+    { name: 'pink-dark', color: 'bg-pink-900', text: 'text-pink-400' },
+    { name: 'blue-dark', color: 'bg-blue-900', text: 'text-blue-400' },
   ];
 
   // Fonction pour obtenir les classes en fonction du thème
@@ -44,7 +46,7 @@ export default function Navbar() {
     
     switch(theme) {
       case 'light':
-        return `${baseClasses} bg-white border-gray-200 text-gray-800`;
+        return `${baseClasses} bg-white border-gray-200 text-gray-900`;
       case 'violet-dark':
         return `${baseClasses} bg-violet-900 border-violet-800 text-violet-100`;
       case 'pink-dark':
@@ -56,25 +58,30 @@ export default function Navbar() {
     }
   };
 
-  const getNavLinkClasses = () => {
+  const getNavLinkClasses = (path: string) => {
+    const isActive = pathname === path;
+    const activeClasses = isActive 
+      ? 'bg-orange-500/20 border-l-4 border-orange-500' 
+      : '';
+
     switch(theme) {
       case 'light':
-        return "text-gray-700 hover:text-gray-900 hover:bg-gray-100";
+        return `${activeClasses} text-gray-900 hover:text-gray-900 hover:bg-gray-100`;
       case 'violet-dark':
-        return "text-violet-200 hover:text-white hover:bg-violet-800";
+        return `${activeClasses} text-violet-200 hover:text-white hover:bg-violet-800`;
       case 'pink-dark':
-        return "text-pink-200 hover:text-white hover:bg-pink-800";
+        return `${activeClasses} text-pink-200 hover:text-white hover:bg-pink-800`;
       case 'blue-dark':
-        return "text-blue-200 hover:text-white hover:bg-blue-800";
+        return `${activeClasses} text-blue-200 hover:text-white hover:bg-blue-800`;
       default: // dark
-        return "text-gray-300 hover:text-white hover:bg-gray-800";
+        return `${activeClasses} text-gray-300 hover:text-white hover:bg-gray-800`;
     }
   };
 
   const getDropdownClasses = () => {
     switch(theme) {
       case 'light':
-        return "bg-white border-gray-200 text-gray-700";
+        return "bg-white border-gray-200 text-gray-900";
       case 'violet-dark':
         return "bg-violet-800 border-violet-700 text-violet-100";
       case 'pink-dark':
@@ -120,15 +127,21 @@ export default function Navbar() {
             <div className="ml-10 flex items-center space-x-4">
               <Link 
                 href="/" 
-                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses()}`}
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/')}`}
               >
                 Accueil
+                {pathname === '/' && (
+                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
+                )}
               </Link>
               
-              <div className="relative group">
+              <div 
+                className="relative group"
+                onMouseEnter={() => setOpenSubmenu('services')}
+                onMouseLeave={() => setOpenSubmenu(null)}
+              >
                 <button 
-                  onClick={() => toggleSubmenu('services')}
-                  className={`px-3 py-2 rounded-md text-lg font-medium flex items-center transition-all duration-300 ${getNavLinkClasses()}`}
+                  className={`px-3 py-2 rounded-md text-lg font-medium flex items-center transition-all duration-300 ${getNavLinkClasses('/services')}`}
                 >
                   Services
                   <svg 
@@ -207,23 +220,32 @@ export default function Navbar() {
               
               <Link 
                 href="/portfolio" 
-                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses()}`}
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/portfolio')}`}
               >
                 Portfolio
+                {pathname === '/portfolio' && (
+                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
+                )}
               </Link>
               
               <Link 
                 href="/blog" 
-                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses()}`}
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/blog')}`}
               >
                 Blog
+                {pathname === '/blog' && (
+                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
+                )}
               </Link>
               
               <Link 
                 href="/contact" 
-                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses()}`}
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/contact')}`}
               >
                 Contact
+                {pathname === '/contact' && (
+                  <span className="absolute top-0 left-2 w-2 h-2 rounded-full bg-orange-500"></span>
+                )}
               </Link>
             </div>
 
@@ -346,15 +368,20 @@ export default function Navbar() {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <Link 
             href="/" 
-            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700'}`}
+            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${getNavLinkClasses('/')}`}
             onClick={() => setIsOpen(false)}
           >
-            Accueil
+            <div className="flex items-center">
+              Accueil
+              {pathname === '/' && (
+                <span className="ml-2 w-2 h-2 rounded-full bg-orange-500"></span>
+              )}
+            </div>
           </Link>
           
           <div className="px-3 py-2">
             <button 
-              className={`w-full flex justify-between items-center text-base font-medium px-1 py-2 rounded-md transition-all duration-200 ${theme === 'light' ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700'}`}
+              className={`w-full flex justify-between items-center text-base font-medium px-1 py-2 rounded-md transition-all duration-200 ${getNavLinkClasses('/services')}`}
               onClick={() => toggleSubmenu('mobile-services')}
             >
               Services
@@ -408,26 +435,41 @@ export default function Navbar() {
           
           <Link 
             href="/portfolio" 
-            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700'}`}
+            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${getNavLinkClasses('/portfolio')}`}
             onClick={() => setIsOpen(false)}
           >
-            Portfolio
+            <div className="flex items-center">
+              Portfolio
+              {pathname === '/portfolio' && (
+                <span className="ml-2 w-2 h-2 rounded-full bg-orange-500"></span>
+              )}
+            </div>
           </Link>
           
           <Link 
             href="/blog" 
-            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700'}`}
+            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${getNavLinkClasses('/blog')}`}
             onClick={() => setIsOpen(false)}
           >
-            Blog
+            <div className="flex items-center">
+              Blog
+              {pathname === '/blog' && (
+                <span className="ml-2 w-2 h-2 rounded-full bg-orange-500"></span>
+              )}
+            </div>
           </Link>
           
           <Link 
             href="/contact" 
-            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${theme === 'light' ? 'text-gray-700 hover:bg-gray-100' : 'text-gray-300 hover:bg-gray-700'}`}
+            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${getNavLinkClasses('/contact')}`}
             onClick={() => setIsOpen(false)}
           >
-            Contact
+            <div className="flex items-center">
+              Contact
+              {pathname === '/contact' && (
+                <span className="ml-2 w-2 h-2 rounded-full bg-orange-500"></span>
+              )}
+            </div>
           </Link>
           
           <Link 
