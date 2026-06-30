@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react';
-import { useTheme } from '../components/context/ThemeContext';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const QuotePage = () => {
   const { theme } = useTheme();
@@ -201,7 +201,7 @@ const QuotePage = () => {
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Merci pour votre demande !</h2>
               <p className="text-lg mb-6">
-                Nous avons bien reçu votre demande de devis. Notre équipe l'analyse et reviendra vers vous avec une proposition personnalisée sous 24 heures.
+                Nous avons bien reçu votre demande de devis. Notre équipe l&apos;analyse et reviendra vers vous avec une proposition personnalisée sous 24 heures.
               </p>
               <button
                 onClick={() => {
@@ -423,7 +423,7 @@ const QuotePage = () => {
                         className={`w-5 h-5 rounded ${getBorderColor()} ${theme === 'light' ? 'bg-white' : 'bg-gray-800/20'} focus:ring-blue-500`}
                       />
                       <label htmlFor="consent" className="ml-2 text-sm">
-                        J'accepte que mes données soient utilisées pour traiter ma demande et j'ai pris connaissance de la politique de confidentialité.
+                        J&apos;accepte que mes données soient utilisées pour traiter ma demande et j&apos;ai pris connaissance de la politique de confidentialité.
                       </label>
                     </div>
                   </motion.div>

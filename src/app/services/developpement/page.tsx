@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
    Smartphone,
@@ -17,6 +17,7 @@ import {
    ChevronRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const DevelopmentPage = () => {
    const { theme } = useTheme();
@@ -258,7 +259,7 @@ const DevelopmentPage = () => {
                      </span>
                   </h1>
                   <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-                     Des solutions technologiques sur mesure pour propulser votre entreprise vers l'avenir.
+                     Des solutions technologiques sur mesure pour propulser votre entreprise vers l&apos;avenir.
                   </p>
                   <motion.div
                      initial={{ opacity: 0, y: 20 }}
@@ -322,7 +323,7 @@ const DevelopmentPage = () => {
                   className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                >
                   <AnimatePresence mode="popLayout">
-                     {technologies[activeTech as keyof typeof technologies].map((tech, index) => (
+                     {technologies[activeTech as keyof typeof technologies].map((tech) => (
                         <motion.div
                            key={tech.name}
                            layout

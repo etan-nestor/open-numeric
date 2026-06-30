@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react';
-import { useTheme } from '../components/context/ThemeContext';
 import Head from 'next/head';
-import Image from 'next/image';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const ContactPage = () => {
   const { theme } = useTheme();
@@ -222,7 +221,7 @@ const ContactPage = () => {
               {/* Horaires d'ouverture */}
               <div className={`p-8 rounded-2xl shadow-xl ${getCardBg()} border ${getBorderColor()}`}>
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 relative pb-2">
-                  Horaires d'ouverture
+                  Horaires d&apos;ouverture
                   <span className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-orangered-500 to-orangered-300 rounded-full"></span>
                 </h2>
 

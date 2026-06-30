@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../components/context/ThemeContext';
 import Head from 'next/head';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 // Interface pour les couleurs de catégories
 interface CategoryColors {
@@ -432,7 +432,7 @@ const ServicesPage = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus d'Excellence</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus d&apos;Excellence</h2>
             <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
               Une méthodologie rigoureuse pour des résultats exceptionnels à chaque étape.
             </p>

@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
     Axe,
@@ -17,6 +17,7 @@ import {
     Settings
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const MaintenancePage = () => {
     const { theme } = useTheme();
@@ -411,7 +412,7 @@ const MaintenancePage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus d'Intervention</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Notre Processus d&apos;Intervention</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
                             Une méthodologie rigoureuse pour des réparations efficaces.
                         </p>
@@ -451,7 +452,7 @@ const MaintenancePage = () => {
                     >
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">Équipements Pris en Charge</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-                            Nous intervenons sur tous types d'équipements informatiques.
+                            Nous intervenons sur tous types d&apos;équipements informatiques.
                         </p>
                     </motion.div>
 
@@ -487,7 +488,7 @@ const MaintenancePage = () => {
                         className={`p-8 rounded-2xl shadow-xl ${getCardBg()} border ${getBorderColor()} relative overflow-hidden`}
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 -z-10"></div>
-                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Besoin d'une intervention rapide ?</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold mb-4">Besoin d&apos;une intervention rapide ?</h2>
                         <p className={`text-xl mb-8 ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
                             Notre équipe est disponible pour résoudre vos problèmes techniques.
                         </p>

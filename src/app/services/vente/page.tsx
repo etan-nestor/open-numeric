@@ -1,13 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
     ShoppingCart,
     Cpu,
     Monitor,
-    Smartphone,
     HardDrive,
     Server,
     Cable,
@@ -22,11 +21,11 @@ import {
     Wrench
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const ShopPage = () => {
     const { theme } = useTheme();
     const [activeCategory, setActiveCategory] = useState('computers');
-    const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
     // Couleurs dynamiques en fonction du thème
     const getBgColor = () => {

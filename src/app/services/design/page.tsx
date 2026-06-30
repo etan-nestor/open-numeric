@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
     Palette,
@@ -20,6 +20,7 @@ import {
     PenTool
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const DesignPage = () => {
     const { theme } = useTheme();
@@ -290,7 +291,7 @@ const DesignPage = () => {
                         viewport={{ once: true }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Domaines d'Expertise</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos Domaines d&apos;Expertise</h2>
                         <p className={`text-xl max-w-3xl mx-auto ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
                             Une approche holistique du design pour couvrir tous vos besoins créatifs.
                         </p>

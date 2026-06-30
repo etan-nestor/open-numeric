@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { useTheme } from '../../components/context/ThemeContext';
 import Head from 'next/head';
 import {
     BookOpen,
@@ -11,13 +11,12 @@ import {
     Server,
     Cloud,
     Users,
-    Globe,
     Book,
     Presentation,
     Monitor,
-    Database
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 const TrainingPage = () => {
     const { theme } = useTheme();

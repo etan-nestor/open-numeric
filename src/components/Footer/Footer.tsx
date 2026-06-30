@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></span>
             </h3>
             <p className={`${getTextColor()} mb-6 leading-relaxed`}>
-              Votre partenaire en solutions numériques. Développement, design, formation et maintenance pour propulser votre entreprise à l'ère digitale.
+              Votre partenaire en solutions numériques. Développement, design, formation et maintenance pour propulser votre entreprise à l&apos;ère digitale.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -126,7 +126,6 @@ export default function Footer() {
                 "À propos de nous",
                 "Notre équipe",
                 "Portfolio",
-                "Blog",
                 "Témoignages",
                 "Politique de confidentialité",
                 "Conditions d'utilisation"

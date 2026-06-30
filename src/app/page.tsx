@@ -2,64 +2,43 @@
 
 import Image from "next/image";
 import Head from 'next/head';
-import { useTheme } from './components/context/ThemeContext';
 import { useEffect, useState } from 'react';
+import { useTheme } from "@/components/context/ThemeContext";
 
-// Import des images
-import hero from './images/hero.jpg';
-
-// For teams
-import dev from './images/dev.jpg';
-import design from './images/designer.jpg';
-import trainer from './images/formateur.jpg';
-import repair from './images/maintient.jpg';
-
-// For Clients
-import custo1 from './images/custo1.png';
-import custo2 from './images/custo2.png';
-import custo3 from './images/custo3.jpg';
-import custo4 from './images/custo4.jpg';
-import custo5 from './images/custo5.jpg';
-
-// For Testimonials
-import test1 from './images/test1.jpg';
-import test2 from './images/test2.jpg';
-import test3 from './images/test3.jpg';
-
-// Données pour les sections
+// Données pour les sections - Utilisation directe des chemins public
 const teamMembers = [
   {
     name: "Nestor COMPAORE",
     role: "CEO & Développeur Principal",
     bio: "Expert en développement full-stack avec 4 ans d'expérience dans la création de solutions complexes.",
-    img: dev
+    img: "/images/dev.jpg"
   },
   {
     name: "Sophie Martin",
     role: "Designer UX/UI",
     bio: "Spécialiste en design d'interface et expérience utilisateur, passionnée par les designs intuitifs.",
-    img: design
+    img: "/images/designer.jpg"
   },
   {
     name: "Thomas Leroy",
     role: "Responsable Formation",
     bio: "Formateur certifié avec une approche pédagogique adaptée à tous les niveaux.",
-    img: trainer
+    img: "/images/formateur.jpg"
   },
   {
     name: "Camille Petit",
     role: "Responsable Support Technique",
     bio: "Garant de la qualité et de la réactivité de notre support client.",
-    img: repair
+    img: "/images/maintient.jpg"
   }
 ];
 
 const clients = [
-  { name: "TechCorp", logo: custo1 },
-  { name: "Innovate", logo: custo2 },
-  { name: "DigitalSphere", logo: custo3 },
-  { name: "WebSolutions", logo: custo4 },
-  { name: "FutureNow", logo: custo5 }
+  { name: "TechCorp", logo: "/images/custo1.png" },
+  { name: "Innovate", logo: "/images/custo2.png" },
+  { name: "DigitalSphere", logo: "/images/custo3.jpg" },
+  { name: "WebSolutions", logo: "/images/custo4.jpg" },
+  { name: "FutureNow", logo: "/images/custo5.jpg" }
 ];
 
 const testimonials = [
@@ -67,19 +46,19 @@ const testimonials = [
     quote: "Open Numeric a transformé notre présence en ligne avec une application sur mesure qui a boosté nos ventes de 40%.",
     author: "Jean Lambert",
     company: "CEO, TechCorp",
-    img: test2
+    img: "/images/test2.jpg"
   },
   {
     quote: "Leur équipe de design a créé une identité visuelle qui représente parfaitement nos valeurs et attire nos clients cibles.",
     author: "Marie Dubois",
     company: "Directrice Marketing, Innovate",
-    img: test1
+    img: "/images/test1.jpg"
   },
   {
     quote: "Les formations étaient parfaitement adaptées à nos besoins et ont permis à nos équipes de gagner en productivité.",
     author: "Pierre Garnier",
     company: "DRH, DigitalSphere",
-    img: test3
+    img: "/images/test3.jpg"
   }
 ];
 
@@ -110,16 +89,34 @@ export default function Home() {
   const { theme } = useTheme();
   const [currentClientIndex, setCurrentClientIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Générer les chemins des images de 1 à 6
+  const heroImages = Array.from({ length: 6 }, (_, i) => `/images/on/${i + 1}.png`);
+
+  // Changement d'image pour le hero section
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+        setIsTransitioning(false);
+      }, 500); // Durée de la transition
+    }, 4000); // Changement toutes les 4 secondes
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
 
   // Vérification de la taille de l'écran pour l'adaptation mobile
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-    
+
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
@@ -134,8 +131,8 @@ export default function Home() {
   // Classes dynamiques en fonction du thème - Optimisé pour mobile
   const getSectionClasses = () => {
     const baseClasses = 'transition-colors duration-300 ease-in-out';
-    
-    switch(theme) {
+
+    switch (theme) {
       case 'light':
         return `${baseClasses} bg-white text-gray-800`;
       case 'violet-dark':
@@ -150,7 +147,7 @@ export default function Home() {
   };
 
   const getBorderClasses = () => {
-    switch(theme) {
+    switch (theme) {
       case 'light':
         return 'border-gray-200';
       case 'violet-dark':
@@ -166,8 +163,8 @@ export default function Home() {
 
   const getCardClasses = () => {
     const baseClasses = 'transition-all duration-300 ease-in-out border';
-    
-    switch(theme) {
+
+    switch (theme) {
       case 'light':
         return `${baseClasses} bg-white border-gray-200 hover:border-gray-300`;
       case 'violet-dark':
@@ -182,7 +179,7 @@ export default function Home() {
   };
 
   const getTextColorClasses = () => {
-    switch(theme) {
+    switch (theme) {
       case 'light':
         return 'text-gray-600';
       default:
@@ -254,13 +251,46 @@ export default function Home() {
             <div className="mt-12 md:mt-0 relative">
               <div className="relative">
                 <div className={`absolute -inset-4 rounded-2xl blur-xl transition-colors duration-300 ${theme === 'light' ? 'bg-blue-200/50' : 'bg-blue-500/30'}`}></div>
-                <Image 
-                  className="relative w-full h-auto max-w-md mx-auto rounded-lg" 
-                  src={hero} 
-                  alt="Solutions numériques sur mesure" 
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                <div className="relative w-full max-w-md mx-auto">
+                  {/* Indicateurs de progression */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+                    {heroImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          setIsTransitioning(true);
+                          setTimeout(() => {
+                            setCurrentImageIndex(index);
+                            setIsTransitioning(false);
+                          }, 500);
+                        }}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${currentImageIndex === index
+                            ? 'bg-blue-500 w-6'
+                            : 'bg-white/50 hover:bg-white/75'
+                          }`}
+                        aria-label={`Aller à l'image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Image avec transition */}
+                  <div className="relative overflow-hidden rounded-lg">
+                    <div
+                      className={`transition-all duration-500 ease-in-out ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+                        }`}
+                    >
+                      <Image
+                        className="relative w-full h-auto rounded-lg"
+                        src={heroImages[currentImageIndex]}
+                        alt={`Solutions numériques sur mesure - Image ${currentImageIndex + 1}`}
+                        width={500}
+                        height={300}
+                        priority
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -339,17 +369,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {teamMembers.map((member) => (
-              <div 
+              <div
                 key={member.name}
                 className={`rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl ${getCardClasses()}`}
               >
                 <div className="relative h-48 sm:h-56 w-full">
-                  <Image 
-                    src={member.img} 
+                  <Image
+                    src={member.img}
                     alt={`${member.name} - ${member.role}`}
-                    layout="fill"
-                    objectFit="cover"
-                    className="transition-transform duration-500 hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
@@ -361,13 +390,13 @@ export default function Home() {
                     <a href="#" className="text-blue-400 hover:text-blue-300" aria-label={`LinkedIn de ${member.name}`}>
                       <span className="sr-only">LinkedIn</span>
                       <svg className="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                       </svg>
                     </a>
                     <a href="#" className="text-blue-400 hover:text-blue-300" aria-label={`Twitter de ${member.name}`}>
                       <span className="sr-only">Twitter</span>
                       <svg className="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                       </svg>
                     </a>
                   </div>
@@ -393,8 +422,8 @@ export default function Home() {
           <div className="relative overflow-hidden">
             <div className="flex items-center justify-center py-4 animate-carousel">
               {[...clients, ...clients].map((client, index) => (
-                <div 
-                  key={`${client.name}-${index}`} 
+                <div
+                  key={`${client.name}-${index}`}
                   className="flex-shrink-0 px-4 sm:px-6 md:px-8 transition-transform duration-300"
                   style={{
                     transform: `translateX(-${currentClientIndex * 100}%)`,
@@ -405,9 +434,8 @@ export default function Home() {
                     <Image
                       src={client.logo}
                       alt={client.name}
-                      layout="fill"
-                      objectFit="contain"
-                      className={`opacity-70 hover:opacity-100 transition-opacity ${theme === 'light' ? 'filter brightness-0' : ''}`}
+                      fill
+                      className={`object-contain opacity-70 hover:opacity-100 transition-opacity ${theme === 'light' ? 'filter brightness-0' : ''}`}
                     />
                   </div>
                 </div>
@@ -431,18 +459,18 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
-              <div 
+              <div
                 key={index}
                 className={`rounded-xl p-6 md:p-8 shadow-lg ${getCardClasses()}`}
               >
                 <div className="mb-4 md:mb-6">
                   <svg className="h-6 w-6 md:h-8 md:w-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                 </div>
                 <blockquote className="mb-4 md:mb-6">
                   <p className={`text-sm md:text-base ${getTextColorClasses()}`}>
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
                 </blockquote>
                 <div className="flex items-center">
@@ -450,8 +478,8 @@ export default function Home() {
                     <Image
                       src={testimonial.img}
                       alt={`Photo de ${testimonial.author}`}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div>
@@ -477,7 +505,7 @@ export default function Home() {
                 Prêt à <span className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">transformer</span> votre entreprise ?
               </h2>
               <p className={`text-base md:text-lg lg:text-xl ${getTextColorClasses()} mb-6 md:mb-8`}>
-                Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs numériques.
+                Contactez-nous dès aujourd&apos;hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs numériques.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a

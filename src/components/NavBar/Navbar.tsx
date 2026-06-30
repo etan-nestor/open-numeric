@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import Link from 'next/link';
@@ -6,7 +7,6 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import { usePathname } from 'next/navigation';
 
-const logo = require('../../images/logo.jpg');
 
 export default function Navbar() {
   const { theme, changeTheme } = useTheme();
@@ -123,7 +123,7 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group">
               <div className={`flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 group-hover:from-orange-500 group-hover:to-orangered-500 transition-all duration-500`}>
-                <Image className="h-10 w-10 rounded-full" src={logo} alt="Logo" />
+                <Image className="h-10 w-10 rounded-full" width={100} height={100} src="/images/logo.jpg" alt="Logo" />
               </div>
               <span className={`ml-3 text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent group-hover:from-orange-400 group-hover:to-orangered-300 transition-all duration-500`}>
                 Open Numeric
@@ -241,18 +241,7 @@ export default function Navbar() {
                 </div>
               </Link>
               
-              <Link 
-                href="/blog" 
-                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/blog')}`}
-              >
-                <div className="relative">
-                  Blog
-                  {pathname === '/blog' && (
-                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
-                  )}
-                </div>
-              </Link>
-              
+
               <Link 
                 href="/contact" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/contact')}`}
@@ -499,18 +488,7 @@ export default function Navbar() {
             </div>
           </Link>
           
-          <Link 
-            href="/blog" 
-            className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-200 ${getNavLinkClasses('/blog')}`}
-            onClick={() => setIsOpen(false)}
-          >
-            <div className="flex items-center">
-              Blog
-              {pathname === '/blog' && (
-                <span className="ml-2 w-2 h-2 rounded-full bg-orange-500"></span>
-              )}
-            </div>
-          </Link>
+      
           
           <Link 
             href="/contact" 

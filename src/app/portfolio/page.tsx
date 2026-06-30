@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react';
-import { useTheme } from '../components/context/ThemeContext';
 import Head from 'next/head';
 import Image from 'next/image';
 import { FiCode, FiSmartphone, FiLayers, FiFilm, FiBook, FiSettings, FiShoppingCart } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import { useTheme } from '@/components/context/ThemeContext';
 
 interface Project {
   title: string;
@@ -424,7 +424,7 @@ const PortfolioPage = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-lg italic mb-6">"{testimonial.quote}"</p>
+                <p className="text-lg italic mb-6">&quot;{testimonial.quote}&quot;</p>
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
                     <Image
