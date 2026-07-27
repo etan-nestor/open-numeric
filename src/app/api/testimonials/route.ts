@@ -6,12 +6,13 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
     try {
         const searchParams = request.nextUrl.searchParams
-        const isVisible = searchParams.get('isVisible') !== 'false'
+        const isVisible = searchParams.get('isVisible')
         const isFeatured = searchParams.get('isFeatured') === 'true'
         const projectId = searchParams.get('projectId')
+        const limit = parseInt(searchParams.get('limit') || '100')
 
         const where: any = {}
-        if (isVisible !== undefined) where.isVisible = isVisible
+        if (isVisible !== null) where.isVisible = isVisible === 'true'
         if (isFeatured) where.isFeatured = true
         if (projectId) where.projectId = projectId
 
@@ -27,6 +28,7 @@ export async function GET(request: NextRequest) {
                 },
             },
             orderBy: { order: 'asc' },
+            take: limit,
         })
 
         return NextResponse.json({ success: true, data: testimonials })
@@ -44,6 +46,20 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
+        // Si projectId est fourni, vérifier qu'il existe
+        if (body.projectId) {
+            const projectExists = await prisma.project.findUnique({
+                where: { id: body.projectId },
+                select: { id: true },
+            })
+            if (!projectExists) {
+                return NextResponse.json(
+                    { success: false, error: 'Le projet spécifié n\'existe pas' },
+                    { status: 400 }
+                )
+            }
+        }
+
         const testimonial = await prisma.testimonial.create({
             data: {
                 name: body.name,
@@ -51,11 +67,11 @@ export async function POST(request: NextRequest) {
                 company: body.company,
                 content: body.content,
                 rating: body.rating || 5,
-                imageUrl: body.imageUrl,
+                imageUrl: body.imageUrl || null,
                 isVisible: body.isVisible !== undefined ? body.isVisible : true,
                 isFeatured: body.isFeatured || false,
-                projectId: body.projectId,
-                order: body.order || 0,
+                projectId: body.projectId || null,
+                order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
             },
             include: {
                 project: {
@@ -97,6 +113,20 @@ export async function PUT(request: NextRequest) {
 
         const body = await request.json()
 
+        // Si projectId est fourni, vérifier qu'il existe
+        if (body.projectId) {
+            const projectExists = await prisma.project.findUnique({
+                where: { id: body.projectId },
+                select: { id: true },
+            })
+            if (!projectExists) {
+                return NextResponse.json(
+                    { success: false, error: 'Le projet spécifié n\'existe pas' },
+                    { status: 400 }
+                )
+            }
+        }
+
         const testimonial = await prisma.testimonial.update({
             where: { id },
             data: {
@@ -105,11 +135,11 @@ export async function PUT(request: NextRequest) {
                 company: body.company,
                 content: body.content,
                 rating: body.rating,
-                imageUrl: body.imageUrl,
+                imageUrl: body.imageUrl || null,
                 isVisible: body.isVisible,
                 isFeatured: body.isFeatured,
-                projectId: body.projectId,
-                order: body.order,
+                projectId: body.projectId || null,
+                order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
             },
             include: {
                 project: {

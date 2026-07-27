@@ -1,0 +1,6 @@
+export { PortfolioHero } from './PortfolioHero'
+export { PortfolioServicesNav } from './PortfolioServicesNav'
+export { PortfolioProjects } from './PortfolioProjects'
+export { PortfolioTestimonials } from './PortfolioTestimonials'
+export { PortfolioCTA } from './PortfolioCTA'
+export type { Project, ServiceCategory } from './types'

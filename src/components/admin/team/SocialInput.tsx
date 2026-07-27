@@ -1,7 +1,4 @@
 
-
-
-
 export function SocialInput({ name, value, onChange, placeholder, icon: Icon }: any) {
     return (
       <div className="relative">

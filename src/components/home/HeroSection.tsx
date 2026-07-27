@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { useTheme } from "@/components/context/ThemeContext";
 
-const heroImages = Array.from({ length: 6 }, (_, i) => `/images/on/${i + 1}.png`);
+const heroImages = Array.from({ length: 4 }, (_, i) => `/images/on/${i + 1}.png`);
 
 export function HeroSection() {
     const { theme } = useTheme();

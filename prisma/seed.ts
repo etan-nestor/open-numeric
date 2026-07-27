@@ -10,7 +10,7 @@ async function main() {
         create: {
             email: 'admin@opennumeric.com',
             name: 'Admin',
-            password: 'admin123', // À hasher en production
+            password: 'dev45@.dev',
             role: 'ADMIN',
         },
     })

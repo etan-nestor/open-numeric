@@ -139,7 +139,7 @@ export function MessageDetailModal({
             {/* Réponse rapide */}
             <div className="border-t border-gray-200/30 dark:border-gray-700/30 pt-6">
               <div className="flex items-center gap-2 mb-3">
-                <FiReply className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                <FiXCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 <h3 className="font-medium text-gray-900 dark:text-gray-100">Répondre</h3>
               </div>
               <div className="space-y-3">

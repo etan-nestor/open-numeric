@@ -5,6 +5,33 @@ import Image from "next/image";
 import { useTheme } from "@/components/context/ThemeContext";
 import type { TeamMember } from './types';
 
+const fallbackMembers = [
+    {
+        name: "Nestor COMPAORE",
+        position: "CEO & Développeur Principal",
+        bio: "Expert en développement full-stack avec 4 ans d'expérience dans la création de solutions complexes.",
+        img: "/images/dev.jpg"
+    },
+    {
+        name: "Sophie Martin",
+        position: "Designer UX/UI",
+        bio: "Spécialiste en design d'interface et expérience utilisateur, passionnée par les designs intuitifs.",
+        img: "/images/designer.jpg"
+    },
+    {
+        name: "Thomas Leroy",
+        position: "Responsable Formation",
+        bio: "Formateur certifié avec une approche pédagogique adaptée à tous les niveaux.",
+        img: "/images/formateur.jpg"
+    },
+    {
+        name: "Camille Petit",
+        position: "Responsable Support Technique",
+        bio: "Garant de la qualité et de la réactivité de notre support client.",
+        img: "/images/maintient.jpg"
+    }
+];
+
 export function TeamSection() {
     const { theme } = useTheme();
     const [members, setMembers] = useState<TeamMember[]>([]);
@@ -15,8 +42,8 @@ export function TeamSection() {
             try {
                 const response = await fetch('/api/team?isVisible=true');
                 const data = await response.json();
-                if (data.success) {
-                    // Transformer les données pour correspondre au format attendu
+                
+                if (data.success && data.data && data.data.length > 0) {
                     const formattedMembers = data.data.map((m: any) => ({
                         id: m.id,
                         name: m.name,
@@ -26,36 +53,14 @@ export function TeamSection() {
                         isVisible: m.isVisible
                     }));
                     setMembers(formattedMembers);
+                } else {
+                    // 🔥 Si l'API ne retourne pas de données, utiliser les fallback
+                    setMembers(fallbackMembers);
                 }
             } catch (error) {
                 console.error('Error fetching team:', error);
-                // Fallback sur les données statiques
-                setMembers([
-                    {
-                        name: "Nestor COMPAORE",
-                        position: "CEO & Développeur Principal",
-                        bio: "Expert en développement full-stack avec 4 ans d'expérience dans la création de solutions complexes.",
-                        img: "/images/dev.jpg"
-                    },
-                    {
-                        name: "Sophie Martin",
-                        position: "Designer UX/UI",
-                        bio: "Spécialiste en design d'interface et expérience utilisateur, passionnée par les designs intuitifs.",
-                        img: "/images/designer.jpg"
-                    },
-                    {
-                        name: "Thomas Leroy",
-                        position: "Responsable Formation",
-                        bio: "Formateur certifié avec une approche pédagogique adaptée à tous les niveaux.",
-                        img: "/images/formateur.jpg"
-                    },
-                    {
-                        name: "Camille Petit",
-                        position: "Responsable Support Technique",
-                        bio: "Garant de la qualité et de la réactivité de notre support client.",
-                        img: "/images/maintient.jpg"
-                    }
-                ]);
+                // 🔥 En cas d'erreur, utiliser les fallback
+                setMembers(fallbackMembers);
             } finally {
                 setLoading(false);
             }
@@ -103,6 +108,24 @@ export function TeamSection() {
     }
 
     const visibleMembers = members.filter(m => m.isVisible !== false);
+
+    if (visibleMembers.length === 0) {
+        return (
+            <section className="py-16 md:py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold">
+                            Notre <span className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">Équipe</span>
+                        </h2>
+                        <p className={`mt-4 max-w-2xl text-lg md:text-xl ${getTextColorClasses()} mx-auto`}>
+                            Rencontrez les experts passionnés qui donnent vie à vos projets.
+                        </p>
+                    </div>
+                    <p className="text-center text-gray-500 dark:text-gray-400">Aucun membre dans l'équipe pour le moment.</p>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className="py-16 md:py-20">

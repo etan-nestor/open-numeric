@@ -42,12 +42,24 @@ export function getTechColumns(): Column[] {
     {
       key: 'projects',
       label: 'Projets',
-      render: (value: any) => (
-        <span className="inline-flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-medium text-gray-900 dark:text-gray-100">{value?.length || 0}</span>
-          projet(s)
-        </span>
-      ),
+      render: (value: any) => {
+        if (!value || value.length === 0) {
+          return <span className="text-sm text-gray-400 dark:text-gray-500">-</span>
+        }
+        
+        return (
+          <div className="flex flex-wrap gap-1">
+            {value.map((project: any, i: number) => (
+              <span 
+                key={i}
+                className="text-xs px-2 py-0.5 bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300 rounded-full"
+              >
+                {project.title}
+              </span>
+            ))}
+          </div>
+        )
+      },
     },
   ]
 }

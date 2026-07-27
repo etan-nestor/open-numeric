@@ -241,7 +241,18 @@ export default function Navbar() {
                 </div>
               </Link>
               
-
+              <Link 
+                href="/blog" 
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/blog')}`}
+              >
+                <div className="relative">
+                  Blog
+                  {pathname === '/blog' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
+              </Link>
+              
               <Link 
                 href="/contact" 
                 className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/contact')}`}
@@ -253,6 +264,19 @@ export default function Navbar() {
                   )}
                 </div>
               </Link>
+              
+              <Link 
+                href="/about" 
+                className={`px-3 py-2 rounded-md text-lg font-medium transition-all duration-300 ${getNavLinkClasses('/about')}`}
+              >
+                <div className="relative">
+                  A propos
+                  {pathname === '/about' && (
+                    <span className="absolute top-0 left-3 w-2 h-2 rounded-full bg-orange-500"></span>
+                  )}
+                </div>
+              </Link>
+              
             </div>
 
             <div className="ml-6 flex items-center space-x-4">

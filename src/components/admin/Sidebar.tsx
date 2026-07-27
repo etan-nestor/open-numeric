@@ -33,13 +33,13 @@ export function Sidebar() {
         { href: '/admin/contact', label: 'Messages', icon: FiMail },
         { href: '/admin/newsletter', label: 'Newsletter', icon: FiSend },
         { href: '/admin/devis', label: 'Devis', icon: FiDollarSign },
-        { href: '/admin/blog', label: 'Blog', icon: FiBookOpen },
+        { href: '/admin/blog/categories', label: 'Blog', icon: FiBookOpen },
     ]
 
     // Sous-menus pour le blog
     const blogSubItems = [
-        { href: '/admin/blog', label: 'Articles', icon: FiFileText },
         { href: '/admin/blog/categories', label: 'Catégories', icon: FiFolder },
+        { href: '/admin/blog/articles', label: 'Articles', icon: FiFileText },
         { href: '/admin/blog/tags', label: 'Tags', icon: FiTag },
     ]
 

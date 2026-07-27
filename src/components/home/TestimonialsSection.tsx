@@ -34,15 +34,16 @@ const fallbackTestimonials = [
 
 export function TestimonialsSection() {
     const { theme } = useTheme();
-    const [testimonials, setTestimonials] = useState<Testimonial[]>(fallbackTestimonials);
+    const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchTestimonials = async () => {
             try {
-                const response = await fetch('/api/testimonials?isVisible=true&isFeatured=true');
+                const response = await fetch('/api/testimonials?isVisible=true');
                 const data = await response.json();
-                if (data.success && data.data.length > 0) {
+                
+                if (data.success && data.data && data.data.length > 0) {
                     const formattedTestimonials = data.data.map((t: any) => ({
                         id: t.id,
                         name: t.name,
@@ -50,15 +51,19 @@ export function TestimonialsSection() {
                         company: t.company,
                         content: t.content,
                         rating: t.rating || 5,
-                        imageUrl: t.imageUrl,
+                        imageUrl: t.imageUrl || '/images/default-avatar.jpg',
                         isVisible: t.isVisible,
                         isFeatured: t.isFeatured
                     }));
                     setTestimonials(formattedTestimonials);
+                } else {
+                    // 🔥 Si l'API ne retourne pas de données, utiliser les fallback
+                    setTestimonials(fallbackTestimonials);
                 }
             } catch (error) {
                 console.error('Error fetching testimonials:', error);
-                // Garder les données de fallback
+                // 🔥 En cas d'erreur, utiliser les fallback
+                setTestimonials(fallbackTestimonials);
             } finally {
                 setLoading(false);
             }
@@ -113,6 +118,24 @@ export function TestimonialsSection() {
     }
 
     const visibleTestimonials = testimonials.filter(t => t.isVisible !== false);
+
+    if (visibleTestimonials.length === 0) {
+        return (
+            <section className={`py-16 md:py-20 ${getSectionClasses()}`}>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12 md:mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold">
+                            Témoignages <span className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">Clients</span>
+                        </h2>
+                        <p className={`mt-4 max-w-2xl text-lg md:text-xl ${getTextColorClasses()} mx-auto`}>
+                            Ce que nos clients disent de notre travail.
+                        </p>
+                    </div>
+                    <p className="text-center text-gray-500 dark:text-gray-400">Aucun témoignage disponible pour le moment.</p>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section className={`py-16 md:py-20 ${getSectionClasses()}`}>

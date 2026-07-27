@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useTheme } from "@/components/context/ThemeContext";
 import type { Client } from './types';
 
-// Données statiques de fallback
 const fallbackClients = [
     { name: "TechCorp", logo: "/images/custo1.png" },
     { name: "Innovate", logo: "/images/custo2.png" },
@@ -16,7 +15,7 @@ const fallbackClients = [
 
 export function ClientsSection() {
     const { theme } = useTheme();
-    const [clients, setClients] = useState<Client[]>(fallbackClients);
+    const [clients, setClients] = useState<Client[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentClientIndex, setCurrentClientIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
@@ -37,7 +36,8 @@ export function ClientsSection() {
             try {
                 const response = await fetch('/api/partners?isVisible=true');
                 const data = await response.json();
-                if (data.success && data.data.length > 0) {
+                
+                if (data.success && data.data && data.data.length > 0) {
                     const formattedClients = data.data.map((p: any) => ({
                         id: p.id,
                         name: p.name,
@@ -45,10 +45,12 @@ export function ClientsSection() {
                         isVisible: p.isVisible
                     }));
                     setClients(formattedClients);
+                } else {
+                    setClients(fallbackClients);
                 }
             } catch (error) {
                 console.error('Error fetching clients:', error);
-                // Garder les données de fallback
+                setClients(fallbackClients);
             } finally {
                 setLoading(false);
             }
@@ -98,6 +100,10 @@ export function ClientsSection() {
 
     const visibleClients = clients.filter(c => c.isVisible !== false);
 
+    if (visibleClients.length === 0) {
+        return null;
+    }
+
     return (
         <section className={`py-12 md:py-16 transition-colors duration-300 ${theme === 'light' ? 'bg-gray-50' : 'bg-gray-800/30'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -136,16 +142,16 @@ export function ClientsSection() {
             </div>
 
             <style jsx global>{`
-        @keyframes carousel {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-carousel {
-          animation: carousel ${isMobile ? '15s' : '20s'} linear infinite;
-          display: flex;
-          width: 200%;
-        }
-      `}</style>
+                @keyframes carousel {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-carousel {
+                    animation: carousel ${isMobile ? '15s' : '20s'} linear infinite;
+                    display: flex;
+                    width: 200%;
+                }
+            `}</style>
         </section>
     );
 }

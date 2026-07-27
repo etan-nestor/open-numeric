@@ -6,12 +6,12 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
-    const isVisible = searchParams.get('isVisible') !== 'false'
+    const isVisible = searchParams.get('isVisible')
     const isFeatured = searchParams.get('isFeatured') === 'true'
     const category = searchParams.get('category')
 
     const where: any = {}
-    if (isVisible !== undefined) where.isVisible = isVisible
+    if (isVisible !== null) where.isVisible = isVisible === 'true'
     if (isFeatured) where.isFeatured = true
     if (category) where.category = category
 
@@ -39,12 +39,13 @@ export async function POST(request: NextRequest) {
       data: {
         name: body.name,
         logoUrl: body.logoUrl,
-        website: body.website,
-        description: body.description,
-        category: body.category,
+        website: body.website || null,
+        description: body.description || null,
+        category: body.category || null,
         isVisible: body.isVisible !== undefined ? body.isVisible : true,
         isFeatured: body.isFeatured || false,
-        order: body.order || 0,
+        // 🔥 IMPORTANT: Convertir order en nombre entier
+        order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
       },
     })
 
@@ -82,12 +83,13 @@ export async function PUT(request: NextRequest) {
       data: {
         name: body.name,
         logoUrl: body.logoUrl,
-        website: body.website,
-        description: body.description,
-        category: body.category,
+        website: body.website || null,
+        description: body.description || null,
+        category: body.category || null,
         isVisible: body.isVisible,
         isFeatured: body.isFeatured,
-        order: body.order,
+        // 🔥 IMPORTANT: Convertir order en nombre entier
+        order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
       },
     })
 

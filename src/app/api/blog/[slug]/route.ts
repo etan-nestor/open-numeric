@@ -4,11 +4,13 @@ import { prisma } from '@/lib/prisma'
 // GET - Récupérer un article par slug
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
+    
     const post = await prisma.blogPost.findUnique({
-      where: { slug: params.slug },
+      where: { slug },
       include: {
         author: {
           select: {
@@ -62,32 +64,38 @@ export async function GET(
 // PUT - Mettre à jour un article
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
     const body = await request.json()
     
+    // 🔥 Gérer les tags
+    const tags = body.tags || []
+
     const post = await prisma.blogPost.update({
-      where: { slug: params.slug },
+      where: { slug },
       data: {
         title: body.title,
         content: body.content,
         excerpt: body.excerpt,
-        image: body.image,
+        image: body.image || null,
         status: body.status,
-        categoryId: body.categoryId,
+        categoryId: body.categoryId || null,
         isFeatured: body.isFeatured,
-        readTime: body.readTime,
+        readTime: body.readTime ? parseInt(body.readTime) : null,
         publishedAt: body.status === 'PUBLISHED' ? new Date() : null,
-        tags: {
+        tags: tags.length > 0 ? {
           set: [],
-          connectOrCreate: body.tags?.map((tagName: string) => ({
+          connectOrCreate: tags.map((tagName: string) => ({
             where: { name: tagName },
             create: {
               name: tagName,
               slug: tagName.toLowerCase().replace(/\s+/g, '-'),
             },
           })),
+        } : {
+          set: []
         },
       },
       include: {
@@ -121,11 +129,13 @@ export async function PUT(
 // DELETE - Supprimer un article
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
+
     await prisma.blogPost.delete({
-      where: { slug: params.slug },
+      where: { slug },
     })
 
     return NextResponse.json({

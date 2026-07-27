@@ -1,4 +1,3 @@
-// app/api/devis/[id]/route.ts
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { devisUpdateSchema } from '@/lib/validations'

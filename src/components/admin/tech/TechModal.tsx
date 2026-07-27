@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -43,7 +44,30 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
     icon: '',
     color: '',
     category: '',
+    projectIds: [] as string[], // 🔥 Nouveau champ pour les projets
   })
+
+  const [projects, setProjects] = useState<any[]>([])
+  const [loadingProjects, setLoadingProjects] = useState(false)
+
+  // Charger les projets disponibles
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoadingProjects(true)
+        const response = await fetch('/api/portfolio?includeAll=true&limit=100')
+        const data = await response.json()
+        if (data.success) {
+          setProjects(data.data || [])
+        }
+      } catch (error) {
+        console.error('Error fetching projects:', error)
+      } finally {
+        setLoadingProjects(false)
+      }
+    }
+    fetchProjects()
+  }, [])
 
   useEffect(() => {
     if (technology) {
@@ -53,6 +77,7 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
         icon: technology.icon || '',
         color: technology.color || '',
         category: technology.category || '',
+        projectIds: technology.projects?.map(p => p.id) || [],
       })
     } else {
       setFormData({
@@ -61,6 +86,7 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
         icon: '',
         color: '',
         category: '',
+        projectIds: [],
       })
     }
   }, [technology])
@@ -72,9 +98,22 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
+  const handleProjectToggle = (projectId: string) => {
+    setFormData(prev => ({
+      ...prev,
+      projectIds: prev.projectIds.includes(projectId)
+        ? prev.projectIds.filter(id => id !== projectId)
+        : [...prev.projectIds, projectId]
+    }))
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSubmit(formData)
+    onSubmit({
+      ...formData,
+      // On envoie les projectIds pour l'association
+      projectIds: formData.projectIds,
+    })
   }
 
   return (
@@ -136,7 +175,7 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
                 required
               />
               <p className="text-xs text-blue-600/60 dark:text-blue-400/60 mt-1">
-                Utilisé dans l'URL, lettres minuscules et tirets
+                Utilisé dans l&apos;URL, lettres minuscules et tirets
               </p>
             </div>
 
@@ -203,6 +242,46 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
               />
             </div>
 
+            {/* 🔥 NOUVEAU: Sélection des projets */}
+            <div>
+              <label className="block text-sm font-medium text-blue-900 dark:text-blue-100 mb-1.5">
+                Projets associés
+              </label>
+              {loadingProjects ? (
+                <div className="flex justify-center py-4">
+                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+                </div>
+              ) : projects.length === 0 ? (
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Aucun projet disponible. Créez d abord un projet.
+                </p>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-40 overflow-y-auto p-2 bg-blue-50/30 dark:bg-blue-900/10 rounded-xl border border-blue-200/30 dark:border-blue-700/30">
+                  {projects.map((project) => (
+                    <label
+                      key={project.id}
+                      className="flex items-center gap-2.5 p-2 rounded-lg cursor-pointer hover:bg-blue-100/50 dark:hover:bg-blue-800/30 transition-colors"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={formData.projectIds.includes(project.id)}
+                        onChange={() => handleProjectToggle(project.id)}
+                        className="w-4 h-4 rounded border-blue-300 text-blue-600 focus:ring-blue-500"
+                      />
+                      <span className="text-sm text-gray-700 dark:text-gray-300 truncate">
+                        {project.title}
+                      </span>
+                    </label>
+                  ))}
+                </div>
+              )}
+              {formData.projectIds.length > 0 && (
+                <p className="text-xs text-blue-600/70 dark:text-blue-400/70 mt-1">
+                  {formData.projectIds.length} projet(s) sélectionné(s)
+                </p>
+              )}
+            </div>
+
             {/* Actions */}
             <div className="flex flex-col sm:flex-row justify-end gap-3 pt-6 border-t border-blue-200/30 dark:border-blue-700/30">
               <button
@@ -214,7 +293,7 @@ export function TechModal({ isOpen, onClose, technology, onSubmit, loading }: Te
               </button>
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || loadingProjects}
                 className="px-8 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium shadow-lg shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Enregistrement...' : technology ? 'Mettre à jour' : 'Ajouter'}

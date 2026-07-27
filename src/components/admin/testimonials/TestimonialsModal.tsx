@@ -28,6 +28,23 @@ export function TestimonialsModal({ isOpen, onClose, testimonial, onSubmit, load
 
   const [hoverRating, setHoverRating] = useState<number | null>(null)
 
+  const [projects, setProjects] = useState<any[]>([])
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('/api/portfolio?includeAll=true&limit=100')
+        const data = await response.json()
+        if (data.success) {
+          setProjects(data.data || [])
+        }
+      } catch (error) {
+        console.error('Error fetching projects:', error)
+      }
+    }
+    fetchProjects()
+  }, [])
+
   useEffect(() => {
     if (testimonial) {
       setFormData({
@@ -74,14 +91,19 @@ export function TestimonialsModal({ isOpen, onClose, testimonial, onSubmit, load
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onSubmit(formData)
+    const submitData = {
+      ...formData,
+      order: formData.order ? parseInt(String(formData.order)) : 0,
+      projectId: formData.projectId || null,
+  }
+  onSubmit(submitData)
   }
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 py-8">
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-        
+
         <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-amber-200/30 dark:border-amber-700/30">
           {/* Header */}
           <div className="sticky top-0 bg-white dark:bg-gray-900 px-6 py-4 border-b border-amber-200/30 dark:border-amber-700/30 rounded-t-2xl z-10">
@@ -167,11 +189,10 @@ export function TestimonialsModal({ isOpen, onClose, testimonial, onSubmit, load
                       className="p-1 transition-transform hover:scale-110"
                     >
                       <FiStar
-                        className={`w-6 h-6 ${
-                          star <= (hoverRating || formData.rating)
+                        className={`w-6 h-6 ${star <= (hoverRating || formData.rating)
                             ? 'text-yellow-400 fill-yellow-400'
                             : 'text-gray-300 dark:text-gray-600'
-                        }`}
+                          }`}
                       />
                     </button>
                   ))}
@@ -184,7 +205,7 @@ export function TestimonialsModal({ isOpen, onClose, testimonial, onSubmit, load
               {/* Image URL */}
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-amber-900 dark:text-amber-100 mb-1.5">
-                  URL de l'avatar
+                  URL de l avatar
                 </label>
                 <input
                   type="url"
@@ -214,26 +235,28 @@ export function TestimonialsModal({ isOpen, onClose, testimonial, onSubmit, load
 
               {/* Projet associé */}
               <div>
-                <label className="block text-sm font-medium text-amber-900 dark:text-amber-100 mb-1.5">
-                  Projet associé
-                </label>
-                <input
-                  type="text"
-                  name="projectId"
-                  value={formData.projectId}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200/30 dark:border-amber-700/30 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                  placeholder="ID du projet (optionnel)"
-                />
-                <p className="text-xs text-amber-600/60 dark:text-amber-400/60 mt-1">
-                  Laissez vide si non associé à un projet
-                </p>
-              </div>
+    <label className="block text-sm font-medium text-amber-900 dark:text-amber-100 mb-1.5">
+        Projet associé
+    </label>
+    <select
+        name="projectId"
+        value={formData.projectId || ''}
+        onChange={handleChange}
+        className="w-full px-4 py-2.5 bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200/30 dark:border-amber-700/30 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+    >
+        <option value="">Aucun projet</option>
+        {projects.map((project) => (
+            <option key={project.id} value={project.id}>
+                {project.title}
+            </option>
+        ))}
+    </select>
+</div>
 
               {/* Ordre */}
               <div>
                 <label className="block text-sm font-medium text-amber-900 dark:text-amber-100 mb-1.5">
-                  Ordre d'affichage
+                  Ordre d affichage
                 </label>
                 <input
                   type="number"

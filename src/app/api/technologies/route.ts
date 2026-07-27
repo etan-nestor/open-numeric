@@ -40,6 +40,9 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
 
+        // 🔥 Gérer l'association avec les projets
+        const projectIds = body.projectIds || []
+
         const technology = await prisma.technology.create({
             data: {
                 name: body.name,
@@ -47,6 +50,19 @@ export async function POST(request: NextRequest) {
                 icon: body.icon,
                 color: body.color,
                 category: body.category,
+                // 🔥 Connecter les projets existants
+                projects: projectIds.length > 0 ? {
+                    connect: projectIds.map((id: string) => ({ id }))
+                } : undefined,
+            },
+            include: {
+                projects: {
+                    select: {
+                        id: true,
+                        title: true,
+                        slug: true,
+                    },
+                },
             },
         })
 
@@ -79,6 +95,9 @@ export async function PUT(request: NextRequest) {
 
         const body = await request.json()
 
+        // 🔥 Gérer l'association avec les projets
+        const projectIds = body.projectIds || []
+
         const technology = await prisma.technology.update({
             where: { id },
             data: {
@@ -87,6 +106,20 @@ export async function PUT(request: NextRequest) {
                 icon: body.icon,
                 color: body.color,
                 category: body.category,
+                // 🔥 Mettre à jour les projets associés
+                projects: {
+                    set: [], // D'abord, déconnecter tous
+                    connect: projectIds.map((id: string) => ({ id })), // Puis reconnecter ceux sélectionnés
+                },
+            },
+            include: {
+                projects: {
+                    select: {
+                        id: true,
+                        title: true,
+                        slug: true,
+                    },
+                },
             },
         })
 
@@ -116,6 +149,16 @@ export async function DELETE(request: NextRequest) {
                 { status: 400 }
             )
         }
+
+        // 🔥 Déconnecter les projets avant de supprimer
+        await prisma.technology.update({
+            where: { id },
+            data: {
+                projects: {
+                    set: [],
+                },
+            },
+        })
 
         await prisma.technology.delete({
             where: { id },

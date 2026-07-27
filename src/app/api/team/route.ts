@@ -6,11 +6,11 @@ import { prisma } from '@/lib/prisma'
 export async function GET(request: NextRequest) {
     try {
         const searchParams = request.nextUrl.searchParams
-        const isVisible = searchParams.get('isVisible') !== 'false'
+        const isVisible = searchParams.get('isVisible')
         const isCore = searchParams.get('isCore') === 'true'
 
         const where: any = {}
-        if (isVisible !== undefined) where.isVisible = isVisible
+        if (isVisible !== null) where.isVisible = isVisible === 'true'
         if (isCore) where.isCore = true
 
         const team = await prisma.teamMember.findMany({
@@ -47,7 +47,8 @@ export async function POST(request: NextRequest) {
                 instagram: body.instagram,
                 github: body.github,
                 portfolio: body.portfolio,
-                order: body.order || 0,
+                // 🔥 IMPORTANT: Convertir order en nombre entier
+                order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
                 isVisible: body.isVisible !== undefined ? body.isVisible : true,
                 isCore: body.isCore || false,
                 joinedAt: body.joinedAt ? new Date(body.joinedAt) : null,
@@ -98,7 +99,8 @@ export async function PUT(request: NextRequest) {
                 instagram: body.instagram,
                 github: body.github,
                 portfolio: body.portfolio,
-                order: body.order,
+                // 🔥 IMPORTANT: Convertir order en nombre entier
+                order: typeof body.order === 'string' ? parseInt(body.order) : Number(body.order) || 0,
                 isVisible: body.isVisible,
                 isCore: body.isCore,
                 joinedAt: body.joinedAt ? new Date(body.joinedAt) : null,

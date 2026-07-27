@@ -1,0 +1,5 @@
+export { AboutHero } from './AboutHero'
+export { AboutStats } from './AboutStats'
+export { AboutContent } from './AboutContent'
+export { AboutFounder } from './AboutFounder'
+export type { StatItem } from './types'
