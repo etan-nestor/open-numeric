@@ -1,0 +1,6 @@
+export { TechAdmin } from './TechAdmin'
+export { TechStats } from './TechStats'
+export { StatCard } from './StatCard'
+export { getTechColumns } from './TechColumns'
+export { getTechActions } from './TechActions'
+export { TechModal } from './TechModal'

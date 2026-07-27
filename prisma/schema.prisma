@@ -1,0 +1,438 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum Role {
+  USER
+  ADMIN
+  EDITOR
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ProjectCategory {
+  WEB
+  MOBILE
+  SOFTWARE
+  API_REST
+  TRAINING
+  DESIGN
+  MAINTENANCE
+  HARDWARE
+}
+
+enum ClientType {
+  ENTERPRISE
+  INDIVIDUAL
+  STARTUP
+  NGO
+}
+
+enum DevisStatus {
+  PENDING
+  IN_REVIEW
+  APPROVED
+  REJECTED
+  COMPLETED
+}
+
+enum ContactStatus {
+  NEW
+  READ
+  REPLIED
+  ARCHIVED
+}
+
+// ============================================
+// USERS & AUTH
+// ============================================
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String
+  password    String   @default("")
+  avatar      String?
+  role        Role     @default(USER)
+  isActive    Boolean  @default(true)
+  lastLogin   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  blogPosts   BlogPost[]
+  projects    Project[]
+  comments    Comment[]
+
+  @@index([email])
+  @@index([role])
+}
+
+// ============================================
+// BLOG SYSTEM
+// ============================================
+
+model BlogPost {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  content     String     @db.Text
+  excerpt     String     @db.Text
+  image       String?
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [id])
+  status      PostStatus @default(DRAFT)
+  views       Int        @default(0)
+  isFeatured  Boolean    @default(false)
+  readTime    Int?
+  publishedAt DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // Relations
+  categoryId  String?
+  category    Category?  @relation(fields: [categoryId], references: [id])
+  tags        Tag[]      @relation("PostTags")
+  comments    Comment[]
+
+  @@index([slug])
+  @@index([status])
+  @@index([authorId])
+  @@index([publishedAt])
+  @@index([categoryId])
+}
+
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  color       String?
+  icon        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  parentId    String?
+  parent      Category? @relation("CategoryParent", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryParent")
+  posts       BlogPost[]
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+model Tag {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  posts       BlogPost[] @relation("PostTags")
+
+  @@index([slug])
+}
+
+model Comment {
+  id          String   @id @default(cuid())
+  content     String   @db.Text
+  authorName  String
+  authorEmail String
+  authorWebsite String?
+  isApproved  Boolean  @default(true)
+  postId      String
+  post        BlogPost @relation(fields: [postId], references: [id])
+  parentId    String?
+  parent      Comment? @relation("CommentParent", fields: [parentId], references: [id])
+  replies     Comment[] @relation("CommentParent")
+  userId      String?  // Relation avec User
+  user        User?    @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([postId])
+  @@index([parentId])
+  @@index([isApproved])
+  @@index([userId])
+}
+
+// ============================================
+// PORTFOLIO / PROJECTS
+// ============================================
+
+model Project {
+  id          String          @id @default(cuid())
+  title       String
+  slug        String          @unique
+  description String          @db.Text
+  category    ProjectCategory
+  clientType  ClientType      @default(ENTERPRISE)
+  imageUrl    String
+  isPublished Boolean         @default(false)
+  url         String?
+  isCompleted Boolean         @default(true)
+  startDate   DateTime?
+  endDate     DateTime?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  // Relations
+  authorId    String?
+  author      User?           @relation(fields: [authorId], references: [id])
+  screens     ProjectScreen[]
+  details     ProjectDetail[]
+  technologies Technology[]   @relation("ProjectTechnologies")
+  testimonials Testimonial[]
+  challenges  ProjectChallenge[]
+
+  @@index([slug])
+  @@index([category])
+  @@index([isPublished])
+  @@index([authorId])
+}
+
+model Technology {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  icon        String?
+  color       String?
+  category    String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  projects    Project[] @relation("ProjectTechnologies")
+
+  @@index([slug])
+  @@index([category])
+}
+
+model ProjectScreen {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  imageUrl    String
+  description String   @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([projectId])
+  @@unique([projectId, order])
+}
+
+model ProjectDetail {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  title       String?
+  content     String   @db.Text
+  order       Int      @default(0)
+  isHighlight Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([projectId])
+  @@unique([projectId, order])
+}
+
+model ProjectChallenge {
+  id          String   @id @default(cuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  challenge   String   @db.Text
+  solution    String   @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([projectId])
+}
+
+// ============================================
+// TEAM
+// ============================================
+
+model TeamMember {
+  id          String   @id @default(cuid())
+  name        String
+  position    String
+  bio         String   @db.Text
+  imageUrl    String
+  email       String?
+  phone       String?
+  linkedin   String?
+  twitter    String?
+  facebook   String?
+  instagram  String?
+  github     String?
+  portfolio  String?
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  isCore      Boolean  @default(false)
+  joinedAt    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isVisible])
+  @@index([order])
+}
+
+// ============================================
+// PARTNERS / CLIENTS
+// ============================================
+
+model Partner {
+  id          String   @id @default(cuid())
+  name        String
+  logoUrl     String
+  website     String?
+  description String?
+  category    String?
+  isVisible   Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isVisible])
+  @@index([category])
+}
+
+// ============================================
+// TESTIMONIALS
+// ============================================
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  name        String
+  position    String
+  company     String
+  content     String   @db.Text
+  rating      Int      @default(5)
+  imageUrl    String?
+  isVisible   Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+  projectId   String?
+  project     Project? @relation(fields: [projectId], references: [id])
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isVisible])
+  @@index([isFeatured])
+  @@index([projectId])
+}
+
+// ============================================
+// CONTACT & DEVIS
+// ============================================
+
+model ContactMessage {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  subject     String
+  message     String        @db.Text
+  phone       String?
+  company     String?
+  status      ContactStatus @default(NEW)
+  isRead      Boolean       @default(false)
+  isReplied   Boolean       @default(false)
+  repliedAt   DateTime?
+  notes       String?       @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model DevisRequest {
+  id          String      @id @default(cuid())
+  name        String
+  company     String?
+  email       String
+  phone       String?
+  projectType String
+  budget      String
+  timeline    String
+  description String      @db.Text
+  status      DevisStatus @default(PENDING)
+  estimatedPrice Float?
+  notes       String?     @db.Text
+  assignedTo  String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ============================================
+// NEWSLETTER
+// ============================================
+
+model NewsletterSubscription {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  isActive    Boolean  @default(true)
+  token       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([email])
+  @@index([isActive])
+}
+
+// ============================================
+// SITE SETTINGS
+// ============================================
+
+model SiteSetting {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String   @db.Text
+  group       String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([key])
+  @@index([group])
+}
+
+// ============================================
+// ANALYTICS
+// ============================================
+
+model PageView {
+  id          String   @id @default(cuid())
+  path        String
+  referrer    String?
+  ip          String?
+  userAgent   String?
+  sessionId   String?
+  userId      String?
+  duration    Int?
+  createdAt   DateTime @default(now())
+
+  @@index([path])
+  @@index([createdAt])
+  @@index([sessionId])
+}
