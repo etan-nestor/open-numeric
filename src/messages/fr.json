@@ -1,0 +1,595 @@
+{
+  "topBar": {
+    "promo": "Nouveau : formations IA disponibles"
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "À propos",
+    "contact": "Contact",
+    "quote": "Demander un devis",
+    "theme": "Thème",
+    "language": "Langue"
+  },
+  "servicesSection": {
+    "title": "Ce que nous",
+    "titleHighlight": "faisons",
+    "subtitle": "Une gamme complète de services numériques pour répondre à tous vos besoins.",
+    "learnMore": "En savoir plus",
+    "viewAll": "Voir tous nos services",
+    "moreServices": "autres services"
+  },
+  "team": {
+    "badge": "Notre équipe",
+    "title": "Des experts",
+    "titleHighlight": "passionnés",
+    "subtitle": "Rencontrez les experts qui donnent vie à vos projets."
+  },
+  "clients": {
+    "badge": "Nos partenaires",
+    "title": "Ils nous",
+    "titleHighlight": "font confiance",
+    "subtitle": "Des entreprises innovantes qui nous ont choisi pour leurs projets numériques."
+  },
+  "testimonials": {
+    "badge": "Témoignages",
+    "title": "Ce que disent",
+    "titleHighlight": "nos clients",
+    "subtitle": "Découvrez les retours d'expérience de nos partenaires."
+  },
+  "cta": {
+    "badge": "Prêt à démarrer ?",
+    "title": "Transformons votre",
+    "titleHighlight": "vision en réalité",
+    "subtitle": "Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à atteindre vos objectifs numériques.",
+    "primary": "Nous contacter",
+    "secondary": "Demander un devis"
+  },
+  "footer": {
+    "aboutText": "Votre partenaire en solutions numériques. Développement, design, formation et maintenance pour propulser votre entreprise à l'ère digitale.",
+    "services": "Nos Services",
+    "usefulLinks": "Liens Utiles",
+    "contact": "Contactez-nous",
+    "contactButton": "Formulaire de contact",
+    "about": "À propos de nous",
+    "team": "Notre équipe",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "testimonials": "Témoignages",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "cookies": "Politique de cookies",
+    "terms": "CGV"
+  },
+  "hero": {
+    "badge": "Nouveau · Solutions IA 2026",
+    "title": "Solutions Numériques",
+    "titleHighlight": "Sur Mesure",
+    "subtitle": "Développement, design, formation et maintenance — tout ce dont vous avez besoin pour réussir votre transformation digitale.",
+    "ctaPrimary": "Découvrir nos services",
+    "ctaSecondary": "Nous contacter",
+    "available": "Disponible",
+    "stats": {
+      "projects": "Projets livrés",
+      "clients": "Clients satisfaits",
+      "years": "Ans d'expérience",
+      "team": "Experts dédiés"
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Services",
+      "titleHighlight": "Premium",
+      "subtitle": "Des solutions numériques haut de gamme pour transformer votre vision en réalité. Expertise, rapidité et qualité au rendez-vous.",
+      "ctaPrimary": "Demander un devis",
+      "ctaSecondary": "Nous contacter",
+      "available": "Disponible",
+      "fastDelivery": "Livraison rapide",
+      "fastDeliverySub": "Projets en temps record"
+    },
+    "tabs": {
+      "label": "Catégories"
+    },
+    "learnMore": "En savoir plus",
+    "process": {
+      "badge": "Méthodologie",
+      "title": "Notre processus",
+      "titleHighlight": "d'excellence",
+      "subtitle": "Une méthodologie rigoureuse pour des résultats exceptionnels à chaque étape.",
+      "steps": {
+        "consultation": {
+          "title": "Consultation",
+          "description": "Analyse approfondie de vos besoins et définition des objectifs stratégiques."
+        },
+        "design": {
+          "title": "Conception",
+          "description": "Élaboration de solutions sur mesure et validation des concepts."
+        },
+        "build": {
+          "title": "Réalisation",
+          "description": "Développement rigoureux avec des tests qualité à chaque étape."
+        },
+        "delivery": {
+          "title": "Livraison",
+          "description": "Support continu et améliorations pour une performance optimale."
+        }
+      }
+    },
+    "cta": {
+      "title": "Prêt à concrétiser votre projet ?",
+      "subtitle": "Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons vous aider.",
+      "primary": "Nous appeler",
+      "secondary": "Envoyer un email"
+    }
+  },
+  "serviceDetail": {
+    "common": {
+      "learnMore": "En savoir plus",
+      "viewProjects": "Voir les projets",
+      "talkToExpert": "Discuter avec un expert",
+      "requestQuote": "Demander un devis",
+      "ctaTitle": "Prêt à concrétiser votre projet ?",
+      "ctaSubtitle": "Contactez-nous pour discuter de vos besoins."
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Contact",
+      "title": "Discutons de votre",
+      "titleHighlight": "projet",
+      "subtitle": "Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner dans votre transformation digitale."
+    },
+    "form": {
+      "title": "Envoyez-nous un",
+      "titleHighlight": "message",
+      "subtitle": "Remplissez le formulaire ci-dessous, nous vous répondrons dans les plus brefs délais.",
+      "fields": {
+        "name": {
+          "label": "Votre nom",
+          "placeholder": "Jean Dupont"
+        },
+        "email": {
+          "label": "Votre email",
+          "placeholder": "nestor@opennumeric.com"
+        },
+        "subject": {
+          "label": "Sujet",
+          "placeholder": "Demande de devis"
+        },
+        "message": {
+          "label": "Votre message",
+          "placeholder": "Décrivez votre projet en quelques mots..."
+        }
+      },
+      "submit": "Envoyer le message",
+      "sending": "Envoi...",
+      "success": "Votre message a bien été envoyé. Nous vous répondrons rapidement.",
+      "errors": {
+        "rateLimited": "Trop de tentatives. Merci de réessayer dans une minute.",
+        "validation": "Merci de vérifier les informations du formulaire.",
+        "generic": "Une erreur est survenue. Merci de réessayer."
+      }
+    },
+    "info": {
+      "title": "Nos",
+      "titleHighlight": "coordonnées",
+      "items": {
+        "address": {
+          "label": "Adresse"
+        },
+        "phone": {
+          "label": "Téléphone"
+        },
+        "email": {
+          "label": "Email"
+        }
+      }
+    },
+    "schedule": {
+      "title": "Horaires",
+      "titleHighlight": "d'ouverture",
+      "whatsapp": {
+        "title": "Discutons sur WhatsApp",
+        "subtitle": "Réponse rapide, échange direct, partage de fichiers."
+      },
+      "days": {
+        "weekdays": "Lundi - Vendredi",
+        "saturday": "Samedi",
+        "sunday": "Dimanche"
+      },
+      "hours": {
+        "weekdays": "08:00 - 18:00",
+        "saturday": "09:00 - 14:00",
+        "sunday": "Fermé"
+      },
+      "socials": "Réseaux sociaux"
+    },
+    "map": {
+      "title": "Nous",
+      "titleHighlight": "trouver",
+      "subtitle": "Notre bureau à Ouagadougou, Burkina Faso."
+    }
+  },
+  "quote": {
+    "hero": {
+      "label": "Devis",
+      "title": "Demandez votre",
+      "titleHighlight": "devis",
+      "subtitle": "Remplissez ce formulaire pour recevoir une estimation personnalisée de votre projet sous 24 heures."
+    },
+    "steps": {
+      "contact": {
+        "title": "Vos coordonnées",
+        "subtitle": "Parlez-nous un peu de vous pour qu'on puisse vous recontacter."
+      },
+      "project": {
+        "title": "Détails du projet",
+        "subtitle": "Aidez-nous à comprendre votre projet et vos attentes."
+      },
+      "summary": {
+        "title": "Résumé & envoi",
+        "subtitle": "Vérifiez vos informations avant de nous envoyer votre demande."
+      },
+      "labels": {
+        "contact": "Informations",
+        "project": "Projet",
+        "summary": "Finalisation"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Nom complet",
+        "placeholder": "Jean Dupont"
+      },
+      "company": {
+        "label": "Entreprise",
+        "placeholder": "Ma société SARL"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "nestor@opennumeric.com"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "placeholder": "+226 65 03 37 42"
+      },
+      "projectType": {
+        "label": "Type de projet",
+        "placeholder": "Sélectionnez un type de projet"
+      },
+      "budget": {
+        "label": "Budget estimé",
+        "placeholder": "Sélectionnez une fourchette"
+      },
+      "timeline": {
+        "label": "Délai souhaité",
+        "placeholder": "Sélectionnez un délai"
+      },
+      "description": {
+        "label": "Description du projet",
+        "placeholder": "Décrivez votre projet en détail, vos objectifs, vos besoins spécifiques..."
+      },
+      "consent": {
+        "label": "J'accepte que mes données soient utilisées pour traiter ma demande et j'ai pris connaissance de la politique de confidentialité."
+      }
+    },
+    "options": {
+      "projectType": {
+        "site": "Site web vitrine",
+        "webApp": "Application web",
+        "mobileApp": "Application mobile",
+        "ecommerce": "E-commerce",
+        "redesign": "Refonte de site",
+        "seo": "SEO / Marketing",
+        "design": "Design UI/UX",
+        "other": "Autre"
+      },
+      "budget": {
+        "less2k": "Moins de 1 000 000 FCFA",
+        "2k5k": "1 000 000 - 3 000 000 FCFA",
+        "5k10k": "3 000 000 - 6 000 000 FCFA",
+        "10k20k": "6 000 000 - 12 000 000 FCFA",
+        "20k50k": "12 000 000 - 30 000 000 FCFA",
+        "more50k": "Plus de 30 000 000 FCFA"
+      },
+      "timeline": {
+        "less1m": "Moins de 1 mois",
+        "1m3m": "1 - 3 mois",
+        "3m6m": "3 - 6 mois",
+        "6m12m": "6 - 12 mois",
+        "more12m": "Plus de 12 mois",
+        "undetermined": "Non déterminé"
+      }
+    },
+    "summary": {
+      "title": "Récapitulatif de votre demande",
+      "name": "Nom",
+      "company": "Entreprise",
+      "email": "Email",
+      "phone": "Téléphone",
+      "projectType": "Type de projet",
+      "budget": "Budget estimé",
+      "timeline": "Délai souhaité",
+      "description": "Description",
+      "empty": "Non renseigné"
+    },
+    "actions": {
+      "next": "Suivant",
+      "previous": "Précédent",
+      "submit": "Envoyer la demande",
+      "sending": "Envoi...",
+      "newRequest": "Nouvelle demande"
+    },
+    "success": {
+      "title": "Merci pour votre demande !",
+      "subtitle": "Nous avons bien reçu votre demande de devis. Notre équipe l'analyse et reviendra vers vous avec une proposition personnalisée sous 24 heures."
+    },
+    "assurances": {
+      "privacy": {
+        "title": "Confidentialité assurée",
+        "description": "Vos informations sont sécurisées et ne seront jamais partagées sans votre consentement."
+      },
+      "response": {
+        "title": "Réponse sous 24h",
+        "description": "Notre équipe s'engage à vous répondre dans un délai maximum de 24 heures ouvrables."
+      },
+      "free": {
+        "title": "Devis gratuit",
+        "description": "Notre estimation est complètement gratuite et sans engagement de votre part."
+      }
+    },
+    "errors": {
+      "rateLimited": "Trop de tentatives. Merci de réessayer dans une minute.",
+      "validation": "Merci de vérifier les informations du formulaire.",
+      "generic": "Une erreur est survenue. Merci de réessayer."
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "label": "Portfolio",
+      "title": "Nos",
+      "titleHighlight": "réalisations",
+      "subtitle": "Découvrez une sélection de projets que nous avons conçus, développés et livrés."
+    },
+    "filters": {
+      "title": "Filtrer",
+      "search": "Rechercher",
+      "searchPlaceholder": "Nom, tag, techno...",
+      "category": "Type",
+      "scope": "Portée",
+      "year": "Année",
+      "tech": "Technologies",
+      "all": "Tous",
+      "clear": "Réinitialiser",
+      "results": "{count, plural, =0 {Aucun projet} =1 {1 projet} other {# projets}}"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Mobile",
+      "SOFTWARE": "Logiciel",
+      "API": "API",
+      "MODULE": "Module",
+      "PACKAGE": "Package",
+      "SERVICE": "Service",
+      "IA": "IA",
+      "DESIGN": "Design",
+      "LOGO": "Logo",
+      "TRAINING": "Formation",
+      "MAINTENANCE": "Maintenance",
+      "SALES": "Vente"
+    },
+    "scopes": {
+      "INTERNAL": "Interne",
+      "CLIENT": "Client",
+      "PUBLIC": "Public",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "Externe"
+    },
+    "status": {
+      "COMPLETED": "Livré",
+      "IN_PROGRESS": "En cours",
+      "PLANNED": "Prévu",
+      "ARCHIVED": "Archivé"
+    },
+    "links": {
+      "DEMO": "Voir la démo",
+      "GITHUB": "Code source",
+      "NPM": "Voir sur npm",
+      "DOC": "Documentation",
+      "SITE": "Visiter le site",
+      "STORE": "Voir sur le store",
+      "ARTICLE": "Lire l'article"
+    },
+    "card": {
+      "viewProject": "Voir le projet",
+      "featured": "À la une"
+    },
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "page": "Page {current} sur {total}"
+    },
+    "empty": {
+      "title": "Aucun projet trouvé",
+      "subtitle": "Essayez de modifier vos filtres ou contactez-nous pour discuter de votre projet.",
+      "cta": "Nous contacter"
+    },
+    "cta": {
+      "title": "Un projet en tête ?",
+      "subtitle": "Discutons de votre besoin et trouvons ensemble la meilleure solution.",
+      "primary": "Demander un devis",
+      "secondary": "Nous contacter"
+    }
+  },
+  "projectDetail": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "portfolio": "Portfolio"
+    },
+    "meta": {
+      "year": "Année",
+      "client": "Client",
+      "status": "Statut",
+      "scope": "Portée",
+      "category": "Catégorie",
+      "duration": "Durée",
+      "team": "Équipe"
+    },
+    "sections": {
+      "overview": "Aperçu",
+      "gallery": "Aperçu visuel",
+      "features": "Fonctionnalités clés",
+      "tech": "Stack technique",
+      "links": "Liens utiles",
+      "similar": "Projets similaires"
+    },
+    "links": {
+      "DEMO": "Voir la démo",
+      "GITHUB": "Voir le code source",
+      "NPM": "Installer depuis npm",
+      "DOC": "Lire la documentation",
+      "SITE": "Visiter le site",
+      "STORE": "Voir sur le store",
+      "ARTICLE": "Lire l'article"
+    },
+    "status": {
+      "COMPLETED": "Livré",
+      "IN_PROGRESS": "En cours",
+      "PLANNED": "Prévu",
+      "ARCHIVED": "Archivé"
+    },
+    "scopes": {
+      "INTERNAL": "Interne",
+      "CLIENT": "Client",
+      "PUBLIC": "Public",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "Externe"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Mobile",
+      "SOFTWARE": "Logiciel",
+      "API": "API",
+      "MODULE": "Module",
+      "PACKAGE": "Package",
+      "SERVICE": "Service",
+      "IA": "IA",
+      "DESIGN": "Design",
+      "LOGO": "Logo",
+      "TRAINING": "Formation",
+      "MAINTENANCE": "Maintenance",
+      "SALES": "Vente"
+    },
+    "cta": {
+      "title": "Ce projet vous inspire ?",
+      "subtitle": "Discutons de votre projet et créons quelque chose d'exceptionnel ensemble.",
+      "primary": "Démarrer mon projet",
+      "secondary": "Voir tout le portfolio"
+    },
+    "notFound": {
+      "title": "Projet introuvable",
+      "subtitle": "Le projet que vous recherchez n'existe pas ou a été déplacé.",
+      "back": "Retour au portfolio"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "À propos",
+      "title": "Qui",
+      "titleHighlight": "sommes-nous",
+      "subtitle": "Open Numeric est un studio digital burkinabè qui conçoit des solutions numériques sur mesure pour accompagner les entreprises dans leur transformation."
+    },
+    "mission": {
+      "label": "Notre mission",
+      "title": "Démocratiser le",
+      "titleHighlight": "numérique",
+      "paragraphs": [
+        "Nous croyons que chaque entreprise, quelle que soit sa taille, mérite des outils numériques de qualité professionnelle. Notre mission est de rendre la technologie accessible, efficace et adaptée aux réalités locales.",
+        "Nous combinons expertise technique internationale et compréhension profonde du contexte africain pour livrer des solutions qui fonctionnent vraiment, sur le terrain."
+      ]
+    },
+    "values": {
+      "label": "Nos valeurs",
+      "title": "Ce qui nous",
+      "titleHighlight": "anime",
+      "items": {
+        "excellence": {
+          "title": "Excellence",
+          "description": "Nous ne livrons rien que nous ne serions pas fiers d'utiliser nous-mêmes. Qualité sans compromis."
+        },
+        "proximity": {
+          "title": "Proximité",
+          "description": "Nous travaillons main dans la main avec nos clients, pas au-dessus. Écoute active et transparence totale."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "Nous restons à la pointe des technologies pour offrir le meilleur à chaque projet."
+        },
+        "impact": {
+          "title": "Impact",
+          "description": "Nos solutions doivent générer un vrai retour sur investissement, mesurable et durable."
+        }
+      }
+    },
+    "team": {
+      "label": "Notre équipe",
+      "title": "Les visages derrière",
+      "titleHighlight": "Open Numeric",
+      "subtitle": "Une équipe passionnée, multiculturelle et engagée."
+    },
+    "stats": {
+      "label": "En chiffres",
+      "items": {
+        "projects": {
+          "value": "50+",
+          "label": "Projets livrés"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "Clients satisfaits"
+        },
+        "years": {
+          "value": "4+",
+          "label": "Années d'expérience"
+        },
+        "countries": {
+          "value": "3",
+          "label": "Pays d'intervention"
+        }
+      }
+    },
+    "cta": {
+      "title": "Envie de travailler avec nous ?",
+      "subtitle": "Discutons de votre projet et voyons comment nous pouvons vous aider.",
+      "primary": "Nous contacter",
+      "secondary": "Voir nos réalisations"
+    }
+  },
+  "search": {
+    "trigger": "Rechercher",
+    "title": "Recherche",
+    "backHome": "Retour à l'accueil",
+    "pageSubtitle": "Trouvez rapidement projets, services, équipe et plus encore.",
+    "placeholder": "Rechercher un projet, service, membre...",
+    "placeholderShort": "Rechercher...",
+    "clear": "Effacer",
+    "close": "Fermer",
+    "hint": "Tapez au moins 2 caractères",
+    "hintSub": "Projets, services, équipe, témoignages, clients...",
+    "resultsCount": "{count, plural, =0 {Aucun résultat} =1 {1 résultat} other {# résultats}}",
+    "error": "Une erreur est survenue lors de la recherche.",
+    "types": {
+      "project": "Projet",
+      "service": "Service",
+      "team": "Équipe",
+      "client": "Client",
+      "testimonial": "Témoignage",
+      "nav": "Page"
+    },
+    "empty": {
+      "title": "Aucun résultat",
+      "subtitle": "Aucun résultat pour « {query} »"
+    }
+  }
+}

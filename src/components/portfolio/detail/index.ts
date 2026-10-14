@@ -1,0 +1,9 @@
+export { default as DetailHero } from "./DetailHero";
+export { default as DetailMeta } from "./DetailMeta";
+export { default as DetailContent } from "./DetailContent";
+export { default as DetailFeatures } from "./DetailFeatures";
+export { default as DetailGallery } from "./DetailGallery";
+export { default as DetailTechs } from "./DetailTechs";
+export { default as DetailLinks } from "./DetailLinks";
+export { default as SimilarProjects } from "./SimilarProjects";
+export { default as DetailCta } from "./DetailCta";

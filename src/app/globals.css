@@ -1,0 +1,435 @@
+@import "tailwindcss";
+
+/* =========================================================
+   1. VARIABLES PAR DÉFAUT (light-cream)
+   ========================================================= */
+:root {
+  /* Fonds */
+  --background: #fdf9f3;
+  --background-alt: #f7ede0;
+  --surface: #ffffff;
+  --surface-hover: #fdf3e7;
+  --surface-elevated: #ffffff;
+
+  /* Textes */
+  --foreground: #2a1810;
+  --foreground-muted: #6b4a3a;
+  --foreground-subtle: #9c8676;
+
+  /* Bordures */
+  --border: #eddcc9;
+  --border-strong: #d9c0a4;
+
+  /* Primaire (orange brûlé par défaut) */
+  --primary: #e85d2f;
+  --primary-hover: #c94a20;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(232, 93, 47, 0.12);
+  --primary-glow: rgba(232, 93, 47, 0.35);
+
+  /* Secondaire (bleu nuit) */
+  --secondary: #1e3a8a;
+  --secondary-hover: #1e40af;
+  --secondary-foreground: #ffffff;
+  --secondary-soft: rgba(30, 58, 138, 0.12);
+
+  /* Accent gradient */
+  --accent-from: #e85d2f;
+  --accent-to: #f59e0b;
+
+  /* États */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+
+  /* Ombres */
+  --shadow-sm: 0 1px 3px rgba(42, 24, 16, 0.06);
+  --shadow-md: 0 4px 12px rgba(42, 24, 16, 0.08);
+  --shadow-lg: 0 12px 32px rgba(42, 24, 16, 0.12);
+  --shadow-glow: 0 0 24px var(--primary-glow);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Navbar & dropdowns (fond solide) */
+  --navbar-bg: #ffffff;
+  --navbar-border: #e5e7eb;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #e5e7eb;
+  --dropdown-shadow: 0 20px 40px -12px rgba(42, 24, 16, 0.18);
+}
+
+/* =========================================================
+   2. MAPPING TAILWIND v4
+   ========================================================= */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-elevated: var(--surface-elevated);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-glow: var(--primary-glow);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-soft: var(--secondary-soft);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --color-navbar-bg: var(--navbar-bg);
+  --color-navbar-border: var(--navbar-border);
+  --color-dropdown-bg: var(--dropdown-bg);
+  --color-dropdown-border: var(--dropdown-border);
+}
+
+/* =========================================================
+   3. THÈMES MODERNES 2026
+   ========================================================= */
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT — Crème pêche (doux, chaleureux)
+   ═══════════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --background: #fdf9f3;
+  --background-alt: #faefe2;
+  --surface: #ffffff;
+  --surface-hover: #fdf3e7;
+  --surface-elevated: #ffffff;
+
+  --foreground: #2a1810;
+  --foreground-muted: #6b4a3a;
+  --foreground-subtle: #9c8676;
+
+  --border: #eddcc9;
+  --border-strong: #d9c0a4;
+
+  --primary: #e85d2f;
+  --primary-hover: #c94a20;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(232, 93, 47, 0.1);
+  --primary-glow: rgba(232, 93, 47, 0.3);
+
+  --accent-from: #e85d2f;
+  --accent-to: #f59e0b;
+
+  --navbar-bg: #fdf9f3;
+  --navbar-border: #eddcc9;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #eddcc9;
+  --dropdown-shadow: 0 20px 40px -12px rgba(42, 24, 16, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT + BLEU — Azur / crème
+   ═══════════════════════════════════════════════════════ */
+[data-theme="light-blue"] {
+  --background: #f5faff;
+  --background-alt: #e6f2ff;
+  --surface: #ffffff;
+  --surface-hover: #eff6ff;
+  --surface-elevated: #ffffff;
+
+  --foreground: #0c1e3d;
+  --foreground-muted: #3d5a80;
+  --foreground-subtle: #6b8299;
+
+  --border: #cfe2f7;
+  --border-strong: #a8c8ea;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(37, 99, 235, 0.1);
+  --primary-glow: rgba(37, 99, 235, 0.35);
+
+  --accent-from: #3b82f6;
+  --accent-to: #1e40af;
+
+  --navbar-bg: #f5faff;
+  --navbar-border: #cfe2f7;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #cfe2f7;
+  --dropdown-shadow: 0 20px 40px -12px rgba(12, 30, 61, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT + ORANGE — Pêche vive (défaut)
+   ═══════════════════════════════════════════════════════ */
+[data-theme="light-orange"] {
+  --background: #fff8f0;
+  --background-alt: #ffedd5;
+  --surface: #ffffff;
+  --surface-hover: #fff3e0;
+  --surface-elevated: #ffffff;
+
+  --foreground: #2a1810;
+  --foreground-muted: #7c4a2d;
+  --foreground-subtle: #a57a58;
+
+  --border: #ffd9b3;
+  --border-strong: #ffbc80;
+
+  --primary: #f97316;
+  --primary-hover: #ea580c;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(249, 115, 22, 0.12);
+  --primary-glow: rgba(249, 115, 22, 0.4);
+
+  --accent-from: #f97316;
+  --accent-to: #dc2626;
+
+  --navbar-bg: #fff8f0;
+  --navbar-border: #ffd9b3;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: #ffd9b3;
+  --dropdown-shadow: 0 20px 40px -12px rgba(42, 24, 16, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK — Chocolat profond (élégant, chaleureux)
+   ═══════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --background: #1a120b;
+  --background-alt: #241811;
+  --surface: #2a1e15;
+  --surface-hover: #38281c;
+  --surface-elevated: #33251a;
+
+  --foreground: #f5ede4;
+  --foreground-muted: #c4a88f;
+  --foreground-subtle: #8a7460;
+
+  --border: #3d2b1f;
+  --border-strong: #5c4231;
+
+  --primary: #f59e0b;
+  --primary-hover: #fbbf24;
+  --primary-foreground: #1a120b;
+  --primary-soft: rgba(245, 158, 11, 0.15);
+  --primary-glow: rgba(245, 158, 11, 0.4);
+
+  --accent-from: #f59e0b;
+  --accent-to: #e85d2f;
+
+  --navbar-bg: #1a120b;
+  --navbar-border: #3d2b1f;
+  --dropdown-bg: #2a1e15;
+  --dropdown-border: #3d2b1f;
+  --dropdown-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK + BLEU — Bleu nuit profond
+   ═══════════════════════════════════════════════════════ */
+[data-theme="dark-blue"] {
+  --background: #0a1128;
+  --background-alt: #0f1a3a;
+  --surface: #14224a;
+  --surface-hover: #1c2e5e;
+  --surface-elevated: #182a54;
+
+  --foreground: #e0eaff;
+  --foreground-muted: #93a8d4;
+  --foreground-subtle: #5e73a3;
+
+  --border: #1e2f5e;
+  --border-strong: #2f4585;
+
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(59, 130, 246, 0.18);
+  --primary-glow: rgba(59, 130, 246, 0.5);
+
+  --accent-from: #3b82f6;
+  --accent-to: #8b5cf6;
+
+  --navbar-bg: #0a1128;
+  --navbar-border: #1e2f5e;
+  --dropdown-bg: #14224a;
+  --dropdown-border: #1e2f5e;
+  --dropdown-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* ═══════════════════════════════════════════════════════
+   DARK + ORANGE — Orange brûlé sur charbon
+   ═══════════════════════════════════════════════════════ */
+[data-theme="dark-orange"] {
+  --background: #15100a;
+  --background-alt: #1f160d;
+  --surface: #251a10;
+  --surface-hover: #352413;
+  --surface-elevated: #2e2013;
+
+  --foreground: #fff4e6;
+  --foreground-muted: #d4a878;
+  --foreground-subtle: #9c7a52;
+
+  --border: #3a2818;
+  --border-strong: #5a3d24;
+
+  --primary: #f97316;
+  --primary-hover: #fb923c;
+  --primary-foreground: #ffffff;
+  --primary-soft: rgba(249, 115, 22, 0.18);
+  --primary-glow: rgba(249, 115, 22, 0.5);
+
+  --accent-from: #f97316;
+  --accent-to: #ef4444;
+
+  --navbar-bg: #15100a;
+  --navbar-border: #3a2818;
+  --dropdown-bg: #251a10;
+  --dropdown-border: #3a2818;
+  --dropdown-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* =========================================================
+   4. BASE
+   ========================================================= */
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 10% 0%, var(--primary-soft) 0%, transparent 40%),
+    radial-gradient(circle at 90% 100%, var(--secondary-soft) 0%, transparent 40%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   5. UTILITAIRES PERSONNALISÉS
+   ========================================================= */
+@utility text-gradient {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-primary {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+}
+
+@utility glass {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+}
+
+@utility glow-primary {
+  box-shadow: 0 0 20px var(--primary-glow), 0 0 40px color-mix(in srgb, var(--primary-glow) 50%, transparent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--accent-from), var(--accent-to));
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);
+}
+
+/* Animation pulse pour la barre top */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility min-h-hero {
+  min-height: 88vh;
+}
+@media (min-width: 1024px) {
+  .min-h-hero {
+    min-height: 92vh;
+  }
+}
+/* Animation rotation lente (bordure gradient du wizard) */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Wrapper bordure animée — masque les débordements */
+.quote-border-wrapper {
+  isolation: isolate;
+}
+/* Scrollbar discrète pour les dropdowns */
+.max-h-\[260px\]::-webkit-scrollbar {
+  width: 6px;
+}
+.max-h-\[260px\]::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}

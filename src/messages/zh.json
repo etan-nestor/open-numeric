@@ -1,0 +1,595 @@
+{
+  "topBar": {
+    "promo": "新品：AI 培训课程上线"
+  },
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "portfolio": "作品集",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "quote": "获取报价",
+    "theme": "主题",
+    "language": "语言"
+  },
+  "servicesSection": {
+    "title": "我们",
+    "titleHighlight": "做什么",
+    "subtitle": "满足您所有需求的完整数字服务。",
+    "learnMore": "了解更多",
+    "viewAll": "查看所有服务",
+    "moreServices": "更多服务"
+  },
+  "team": {
+    "badge": "我们的团队",
+    "title": "热情的",
+    "titleHighlight": "专家",
+    "subtitle": "认识让您的项目焕发生机的专家。"
+  },
+  "clients": {
+    "badge": "我们的合作伙伴",
+    "title": "他们信任",
+    "titleHighlight": "我们",
+    "subtitle": "选择我们进行数字项目的创新企业。"
+  },
+  "testimonials": {
+    "badge": "客户评价",
+    "title": "我们的",
+    "titleHighlight": "客户怎么说",
+    "subtitle": "了解我们合作伙伴的反馈。"
+  },
+  "cta": {
+    "badge": "准备好开始了吗？",
+    "title": "让您的",
+    "titleHighlight": "愿景成真",
+    "subtitle": "立即联系我们，讨论您的项目，了解我们如何帮助您实现数字目标。",
+    "primary": "联系我们",
+    "secondary": "获取报价"
+  },
+  "footer": {
+    "aboutText": "您的数字解决方案合作伙伴。开发、设计、培训和维护，助您的企业迈入数字时代。",
+    "services": "我们的服务",
+    "usefulLinks": "有用链接",
+    "contact": "联系我们",
+    "contactButton": "联系表单",
+    "about": "关于我们",
+    "team": "我们的团队",
+    "portfolio": "作品集",
+    "blog": "博客",
+    "testimonials": "客户评价",
+    "rights": "版权所有。",
+    "legal": "法律声明",
+    "cookies": "Cookie 政策",
+    "terms": "条款"
+  },
+  "hero": {
+    "badge": "新品 · 2026 AI 解决方案",
+    "title": "数字解决方案",
+    "titleHighlight": "量身定制",
+    "subtitle": "开发、设计、培训和维护——成功实现数字化转型所需的一切。",
+    "ctaPrimary": "探索我们的服务",
+    "ctaSecondary": "联系我们",
+    "available": "在线",
+    "stats": {
+      "projects": "交付项目",
+      "clients": "满意客户",
+      "years": "年经验",
+      "team": "专业专家"
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "高级",
+      "titleHighlight": "服务",
+      "subtitle": "高端数字解决方案，将您的愿景变为现实。专业、高效、品质保证。",
+      "ctaPrimary": "获取报价",
+      "ctaSecondary": "联系我们",
+      "available": "在线",
+      "fastDelivery": "快速交付",
+      "fastDeliverySub": "创纪录的项目周期"
+    },
+    "tabs": {
+      "label": "类别"
+    },
+    "learnMore": "了解更多",
+    "process": {
+      "badge": "方法论",
+      "title": "我们的卓越",
+      "titleHighlight": "流程",
+      "subtitle": "严谨的方法论，确保每个阶段都能取得卓越成果。",
+      "steps": {
+        "consultation": {
+          "title": "咨询",
+          "description": "深入分析您的需求，制定战略目标。"
+        },
+        "design": {
+          "title": "设计",
+          "description": "制定量身定制的解决方案并验证概念。"
+        },
+        "build": {
+          "title": "实施",
+          "description": "严谨开发，每个阶段都进行质量测试。"
+        },
+        "delivery": {
+          "title": "交付",
+          "description": "持续支持和改进，实现最佳性能。"
+        }
+      }
+    },
+    "cta": {
+      "title": "准备好实现您的项目了吗？",
+      "subtitle": "联系我们进行免费咨询，了解我们如何帮助您。",
+      "primary": "给我们打电话",
+      "secondary": "发送邮件"
+    }
+  },
+  "serviceDetail": {
+    "common": {
+      "learnMore": "了解更多",
+      "viewProjects": "查看项目",
+      "talkToExpert": "与专家交流",
+      "requestQuote": "获取报价",
+      "ctaTitle": "准备好实现您的项目了吗？",
+      "ctaSubtitle": "联系我们，讨论您的需求。"
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "联系我们",
+      "title": "让我们讨论您的",
+      "titleHighlight": "项目",
+      "subtitle": "我们的团队随时为您解答所有问题，并在数字化转型中为您提供支持。"
+    },
+    "form": {
+      "title": "给我们发送",
+      "titleHighlight": "消息",
+      "subtitle": "请填写下方表单，我们会尽快与您联系。",
+      "fields": {
+        "name": {
+          "label": "您的姓名",
+          "placeholder": "张三"
+        },
+        "email": {
+          "label": "您的邮箱",
+          "placeholder": "zhang@example.com"
+        },
+        "subject": {
+          "label": "主题",
+          "placeholder": "报价请求"
+        },
+        "message": {
+          "label": "您的消息",
+          "placeholder": "用几句话描述您的项目..."
+        }
+      },
+      "submit": "发送消息",
+      "sending": "发送中...",
+      "success": "您的消息已发送。我们会尽快回复您。",
+      "errors": {
+        "rateLimited": "尝试次数过多。请在一分钟后重试。",
+        "validation": "请检查表单信息。",
+        "generic": "发生错误。请重试。"
+      }
+    },
+    "info": {
+      "title": "我们的",
+      "titleHighlight": "联系方式",
+      "items": {
+        "address": {
+          "label": "地址"
+        },
+        "phone": {
+          "label": "电话"
+        },
+        "email": {
+          "label": "邮箱"
+        }
+      }
+    },
+    "schedule": {
+      "title": "营业",
+      "titleHighlight": "时间",
+      "whatsapp": {
+        "title": "在 WhatsApp 上交流",
+        "subtitle": "快速响应、直接交流、文件共享。"
+      },
+      "days": {
+        "weekdays": "周一至周五",
+        "saturday": "周六",
+        "sunday": "周日"
+      },
+      "hours": {
+        "weekdays": "08:00 - 18:00",
+        "saturday": "09:00 - 14:00",
+        "sunday": "休息"
+      },
+      "socials": "社交媒体"
+    },
+    "map": {
+      "title": "找到",
+      "titleHighlight": "我们",
+      "subtitle": "我们的办公室位于布基纳法索瓦加杜古。"
+    }
+  },
+  "quote": {
+    "hero": {
+      "label": "报价",
+      "title": "获取您的",
+      "titleHighlight": "报价",
+      "subtitle": "填写此表单，我们将在 24 小时内为您提供个性化的项目估算。"
+    },
+    "steps": {
+      "contact": {
+        "title": "您的联系方式",
+        "subtitle": "请简单介绍一下您，以便我们与您取得联系。"
+      },
+      "project": {
+        "title": "项目详情",
+        "subtitle": "帮助我们了解您的项目和期望。"
+      },
+      "summary": {
+        "title": "摘要与提交",
+        "subtitle": "在提交请求之前，请检查您的信息。"
+      },
+      "labels": {
+        "contact": "信息",
+        "project": "项目",
+        "summary": "完成"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "全名",
+        "placeholder": "张三"
+      },
+      "company": {
+        "label": "公司",
+        "placeholder": "我的公司有限公司"
+      },
+      "email": {
+        "label": "邮箱",
+        "placeholder": "zhang@example.com"
+      },
+      "phone": {
+        "label": "电话",
+        "placeholder": "+226 65 00 00 00"
+      },
+      "projectType": {
+        "label": "项目类型",
+        "placeholder": "选择项目类型"
+      },
+      "budget": {
+        "label": "预估预算",
+        "placeholder": "选择预算范围"
+      },
+      "timeline": {
+        "label": "期望周期",
+        "placeholder": "选择周期"
+      },
+      "description": {
+        "label": "项目描述",
+        "placeholder": "详细描述您的项目、目标和具体需求..."
+      },
+      "consent": {
+        "label": "我同意将我的数据用于处理我的请求，并已阅读隐私政策。"
+      }
+    },
+    "options": {
+      "projectType": {
+        "site": "展示型网站",
+        "webApp": "Web 应用",
+        "mobileApp": "移动应用",
+        "ecommerce": "电子商务",
+        "redesign": "网站改版",
+        "seo": "SEO / 营销",
+        "design": "UI/UX 设计",
+        "other": "其他"
+      },
+      "budget": {
+        "less2k": "少于 1,000,000 FCFA",
+        "2k5k": "1,000,000 - 3,000,000 FCFA",
+        "5k10k": "3,000,000 - 6,000,000 FCFA",
+        "10k20k": "6,000,000 - 12,000,000 FCFA",
+        "20k50k": "12,000,000 - 30,000,000 FCFA",
+        "more50k": "超过 30,000,000 FCFA"
+      },
+      "timeline": {
+        "less1m": "少于 1 个月",
+        "1m3m": "1 - 3 个月",
+        "3m6m": "3 - 6 个月",
+        "6m12m": "6 - 12 个月",
+        "more12m": "超过 12 个月",
+        "undetermined": "待定"
+      }
+    },
+    "summary": {
+      "title": "您的请求摘要",
+      "name": "姓名",
+      "company": "公司",
+      "email": "邮箱",
+      "phone": "电话",
+      "projectType": "项目类型",
+      "budget": "预估预算",
+      "timeline": "期望周期",
+      "description": "描述",
+      "empty": "未填写"
+    },
+    "actions": {
+      "next": "下一步",
+      "previous": "上一步",
+      "submit": "发送请求",
+      "sending": "发送中...",
+      "newRequest": "新请求"
+    },
+    "success": {
+      "title": "感谢您的请求！",
+      "subtitle": "我们已收到您的报价请求。我们的团队正在分析，并将在 24 小时内为您提供个性化方案。"
+    },
+    "assurances": {
+      "privacy": {
+        "title": "保证保密",
+        "description": "您的信息安全无虞，未经您的同意绝不会分享给他人。"
+      },
+      "response": {
+        "title": "24 小时内回复",
+        "description": "我们的团队承诺在最多 24 个工作小时内回复您。"
+      },
+      "free": {
+        "title": "免费报价",
+        "description": "我们的估算是完全免费的，无需您承担任何义务。"
+      }
+    },
+    "errors": {
+      "rateLimited": "尝试次数过多。请在一分钟后重试。",
+      "validation": "请检查表单信息。",
+      "generic": "发生错误。请重试。"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "label": "作品集",
+      "title": "我们的",
+      "titleHighlight": "作品",
+      "subtitle": "探索我们设计、开发和交付的精选项目。"
+    },
+    "filters": {
+      "title": "筛选",
+      "search": "搜索",
+      "searchPlaceholder": "名称、标签、技术...",
+      "category": "类型",
+      "scope": "范围",
+      "year": "年份",
+      "tech": "技术",
+      "all": "全部",
+      "clear": "重置",
+      "results": "{count, plural, =0 {没有项目} =1 {1 个项目} other {# 个项目}}"
+    },
+    "categories": {
+      "WEB": "网页",
+      "MOBILE": "移动端",
+      "SOFTWARE": "软件",
+      "API": "API",
+      "MODULE": "模块",
+      "PACKAGE": "包",
+      "SERVICE": "服务",
+      "IA": "人工智能",
+      "DESIGN": "设计",
+      "LOGO": "标志",
+      "TRAINING": "培训",
+      "MAINTENANCE": "维护",
+      "SALES": "销售"
+    },
+    "scopes": {
+      "INTERNAL": "内部",
+      "CLIENT": "客户",
+      "PUBLIC": "公开",
+      "OPEN_SOURCE": "开源",
+      "EXTERNAL": "外部"
+    },
+    "status": {
+      "COMPLETED": "已交付",
+      "IN_PROGRESS": "进行中",
+      "PLANNED": "计划中",
+      "ARCHIVED": "已归档"
+    },
+    "links": {
+      "DEMO": "查看演示",
+      "GITHUB": "源代码",
+      "NPM": "在 npm 上查看",
+      "DOC": "文档",
+      "SITE": "访问网站",
+      "STORE": "在商店查看",
+      "ARTICLE": "阅读文章"
+    },
+    "card": {
+      "viewProject": "查看项目",
+      "featured": "精选"
+    },
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页",
+      "page": "第 {current} 页 / 共 {total} 页"
+    },
+    "empty": {
+      "title": "未找到项目",
+      "subtitle": "尝试调整筛选条件，或联系我们讨论您的项目。",
+      "cta": "联系我们"
+    },
+    "cta": {
+      "title": "有项目想法吗？",
+      "subtitle": "让我们讨论您的需求，一起寻找最佳方案。",
+      "primary": "获取报价",
+      "secondary": "联系我们"
+    }
+  },
+  "projectDetail": {
+    "breadcrumb": {
+      "home": "首页",
+      "portfolio": "作品集"
+    },
+    "meta": {
+      "year": "年份",
+      "client": "客户",
+      "status": "状态",
+      "scope": "范围",
+      "category": "类别",
+      "duration": "周期",
+      "team": "团队"
+    },
+    "sections": {
+      "overview": "概览",
+      "gallery": "视觉预览",
+      "features": "核心功能",
+      "tech": "技术栈",
+      "links": "相关链接",
+      "similar": "类似项目"
+    },
+    "links": {
+      "DEMO": "查看演示",
+      "GITHUB": "查看源码",
+      "NPM": "从 npm 安装",
+      "DOC": "阅读文档",
+      "SITE": "访问网站",
+      "STORE": "在商店查看",
+      "ARTICLE": "阅读文章"
+    },
+    "status": {
+      "COMPLETED": "已交付",
+      "IN_PROGRESS": "进行中",
+      "PLANNED": "计划中",
+      "ARCHIVED": "已归档"
+    },
+    "scopes": {
+      "INTERNAL": "内部",
+      "CLIENT": "客户",
+      "PUBLIC": "公开",
+      "OPEN_SOURCE": "开源",
+      "EXTERNAL": "外部"
+    },
+    "categories": {
+      "WEB": "网页",
+      "MOBILE": "移动端",
+      "SOFTWARE": "软件",
+      "API": "API",
+      "MODULE": "模块",
+      "PACKAGE": "包",
+      "SERVICE": "服务",
+      "IA": "人工智能",
+      "DESIGN": "设计",
+      "LOGO": "标志",
+      "TRAINING": "培训",
+      "MAINTENANCE": "维护",
+      "SALES": "销售"
+    },
+    "cta": {
+      "title": "被这个项目启发了吗？",
+      "subtitle": "让我们讨论您的项目，一起创造非凡的作品。",
+      "primary": "开始我的项目",
+      "secondary": "查看完整作品集"
+    },
+    "notFound": {
+      "title": "未找到项目",
+      "subtitle": "您要查找的项目不存在或已被移动。",
+      "back": "返回作品集"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "关于我们",
+      "title": "我们是",
+      "titleHighlight": "谁",
+      "subtitle": "Open Numeric 是一家布基纳法索的数字工作室，致力于设计量身定制的数字解决方案，帮助企业发展。"
+    },
+    "mission": {
+      "label": "我们的使命",
+      "title": "让数字技术",
+      "titleHighlight": "普及",
+      "paragraphs": [
+        "我们相信，每家企业无论规模大小，都值得拥有专业级别的数字工具。我们的使命是让技术变得易得、高效，并贴合当地实际。",
+        "我们将国际技术专长与对非洲语境的深刻理解相结合，交付真正能落地的解决方案。"
+      ]
+    },
+    "values": {
+      "label": "我们的价值观",
+      "title": "驱动我们的",
+      "titleHighlight": "力量",
+      "items": {
+        "excellence": {
+          "title": "卓越",
+          "description": "我们不会交付自己不愿使用的产品。质量绝不妥协。"
+        },
+        "proximity": {
+          "title": "贴近",
+          "description": "我们与客户并肩作战，而不是高高在上。积极倾听，完全透明。"
+        },
+        "innovation": {
+          "title": "创新",
+          "description": "我们始终站在技术前沿，为每个项目提供最佳方案。"
+        },
+        "impact": {
+          "title": "影响",
+          "description": "我们的解决方案必须产生真实、可衡量且持久的投资回报。"
+        }
+      }
+    },
+    "team": {
+      "label": "我们的团队",
+      "title": "背后的",
+      "titleHighlight": "面孔",
+      "subtitle": "一支充满激情、多文化、有承诺的团队。"
+    },
+    "stats": {
+      "label": "数字说话",
+      "items": {
+        "projects": {
+          "value": "50+",
+          "label": "交付项目"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "满意客户"
+        },
+        "years": {
+          "value": "4+",
+          "label": "年经验"
+        },
+        "countries": {
+          "value": "3",
+          "label": "服务国家"
+        }
+      }
+    },
+    "cta": {
+      "title": "想和我们合作吗？",
+      "subtitle": "让我们讨论您的项目，看看我们如何帮助您。",
+      "primary": "联系我们",
+      "secondary": "查看我们的作品"
+    }
+  },
+  "search": {
+    "trigger": "搜索",
+    "title": "搜索",
+    "backHome": "返回首页",
+    "pageSubtitle": "快速找到项目、服务、团队等。",
+    "placeholder": "搜索项目、服务、成员...",
+    "placeholderShort": "搜索...",
+    "clear": "清除",
+    "close": "关闭",
+    "hint": "请输入至少 2 个字符",
+    "hintSub": "项目、服务、团队、客户评价、客户...",
+    "resultsCount": "{count, plural, =0 {无结果} =1 {1 个结果} other {# 个结果}}",
+    "error": "搜索时发生错误。",
+    "types": {
+      "project": "项目",
+      "service": "服务",
+      "team": "团队",
+      "client": "客户",
+      "testimonial": "客户评价",
+      "nav": "页面"
+    },
+    "empty": {
+      "title": "无结果",
+      "subtitle": "未找到「{query}」的结果"
+    }
+  }
+}

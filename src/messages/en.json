@@ -1,0 +1,595 @@
+{
+  "topBar": {
+    "promo": "New: AI trainings available"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Request a quote",
+    "theme": "Theme",
+    "language": "Language"
+  },
+  "servicesSection": {
+    "title": "What we",
+    "titleHighlight": "do",
+    "subtitle": "A complete range of digital services to meet all your needs.",
+    "learnMore": "Learn more",
+    "viewAll": "View all services",
+    "moreServices": "more services"
+  },
+  "team": {
+    "badge": "Our team",
+    "title": "Passionate",
+    "titleHighlight": "experts",
+    "subtitle": "Meet the experts who bring your projects to life."
+  },
+  "clients": {
+    "badge": "Our partners",
+    "title": "They trust",
+    "titleHighlight": "us",
+    "subtitle": "Innovative companies that chose us for their digital projects."
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What our",
+    "titleHighlight": "clients say",
+    "subtitle": "Discover the feedback from our partners."
+  },
+  "cta": {
+    "badge": "Ready to start?",
+    "title": "Let's turn your",
+    "titleHighlight": "vision into reality",
+    "subtitle": "Contact us today to discuss your project and discover how we can help you reach your digital goals.",
+    "primary": "Contact us",
+    "secondary": "Request a quote"
+  },
+  "footer": {
+    "aboutText": "Your digital solutions partner. Development, design, training and maintenance to propel your business into the digital age.",
+    "services": "Our Services",
+    "usefulLinks": "Useful Links",
+    "contact": "Contact Us",
+    "contactButton": "Contact form",
+    "about": "About us",
+    "team": "Our team",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "testimonials": "Testimonials",
+    "rights": "All rights reserved.",
+    "legal": "Legal notice",
+    "cookies": "Cookie policy",
+    "terms": "Terms"
+  },
+  "hero": {
+    "badge": "New · AI Solutions 2026",
+    "title": "Digital Solutions",
+    "titleHighlight": "Tailor-Made",
+    "subtitle": "Development, design, training and maintenance — everything you need to succeed in your digital transformation.",
+    "ctaPrimary": "Discover our services",
+    "ctaSecondary": "Contact us",
+    "available": "Available",
+    "stats": {
+      "projects": "Projects delivered",
+      "clients": "Happy clients",
+      "years": "Years of experience",
+      "team": "Dedicated experts"
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Premium",
+      "titleHighlight": "Services",
+      "subtitle": "High-end digital solutions to turn your vision into reality. Expertise, speed and quality guaranteed.",
+      "ctaPrimary": "Request a quote",
+      "ctaSecondary": "Contact us",
+      "available": "Available",
+      "fastDelivery": "Fast delivery",
+      "fastDeliverySub": "Projects in record time"
+    },
+    "tabs": {
+      "label": "Categories"
+    },
+    "learnMore": "Learn more",
+    "process": {
+      "badge": "Methodology",
+      "title": "Our process",
+      "titleHighlight": "of excellence",
+      "subtitle": "A rigorous methodology for exceptional results at every stage.",
+      "steps": {
+        "consultation": {
+          "title": "Consultation",
+          "description": "In-depth analysis of your needs and definition of strategic objectives."
+        },
+        "design": {
+          "title": "Design",
+          "description": "Development of tailored solutions and validation of concepts."
+        },
+        "build": {
+          "title": "Build",
+          "description": "Rigorous development with quality testing at every stage."
+        },
+        "delivery": {
+          "title": "Delivery",
+          "description": "Ongoing support and improvements for optimal performance."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to bring your project to life?",
+      "subtitle": "Contact us for a free consultation and discover how we can help you.",
+      "primary": "Call us",
+      "secondary": "Send an email"
+    }
+  },
+  "serviceDetail": {
+    "common": {
+      "learnMore": "Learn more",
+      "viewProjects": "View projects",
+      "talkToExpert": "Talk to an expert",
+      "requestQuote": "Request a quote",
+      "ctaTitle": "Ready to bring your project to life?",
+      "ctaSubtitle": "Contact us to discuss your needs."
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Contact",
+      "title": "Let's discuss your",
+      "titleHighlight": "project",
+      "subtitle": "Our team is available to answer all your questions and support you in your digital transformation."
+    },
+    "form": {
+      "title": "Send us a",
+      "titleHighlight": "message",
+      "subtitle": "Fill in the form below and we'll get back to you as soon as possible.",
+      "fields": {
+        "name": {
+          "label": "Your name",
+          "placeholder": "John Doe"
+        },
+        "email": {
+          "label": "Your email",
+          "placeholder": "john@example.com"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Quote request"
+        },
+        "message": {
+          "label": "Your message",
+          "placeholder": "Describe your project in a few words..."
+        }
+      },
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent. We'll get back to you soon.",
+      "errors": {
+        "rateLimited": "Too many attempts. Please try again in a minute.",
+        "validation": "Please check the form information.",
+        "generic": "An error occurred. Please try again."
+      }
+    },
+    "info": {
+      "title": "Our",
+      "titleHighlight": "contact details",
+      "items": {
+        "address": {
+          "label": "Address"
+        },
+        "phone": {
+          "label": "Phone"
+        },
+        "email": {
+          "label": "Email"
+        }
+      }
+    },
+    "schedule": {
+      "title": "Opening",
+      "titleHighlight": "hours",
+      "whatsapp": {
+        "title": "Let's chat on WhatsApp",
+        "subtitle": "Quick response, direct exchange, file sharing."
+      },
+      "days": {
+        "weekdays": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      },
+      "hours": {
+        "weekdays": "08:00 - 18:00",
+        "saturday": "09:00 - 14:00",
+        "sunday": "Closed"
+      },
+      "socials": "Social media"
+    },
+    "map": {
+      "title": "Find",
+      "titleHighlight": "us",
+      "subtitle": "Our office in Ouagadougou, Burkina Faso."
+    }
+  },
+  "quote": {
+    "hero": {
+      "label": "Quote",
+      "title": "Request your",
+      "titleHighlight": "quote",
+      "subtitle": "Fill in this form to receive a personalized estimate of your project within 24 hours."
+    },
+    "steps": {
+      "contact": {
+        "title": "Your contact details",
+        "subtitle": "Tell us a bit about yourself so we can get back to you."
+      },
+      "project": {
+        "title": "Project details",
+        "subtitle": "Help us understand your project and your expectations."
+      },
+      "summary": {
+        "title": "Summary & submission",
+        "subtitle": "Review your information before sending us your request."
+      },
+      "labels": {
+        "contact": "Information",
+        "project": "Project",
+        "summary": "Finalization"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "John Doe"
+      },
+      "company": {
+        "label": "Company",
+        "placeholder": "My company LLC"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "john@example.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "+226 65 00 00 00"
+      },
+      "projectType": {
+        "label": "Project type",
+        "placeholder": "Select a project type"
+      },
+      "budget": {
+        "label": "Estimated budget",
+        "placeholder": "Select a range"
+      },
+      "timeline": {
+        "label": "Desired timeline",
+        "placeholder": "Select a timeline"
+      },
+      "description": {
+        "label": "Project description",
+        "placeholder": "Describe your project in detail, your goals, your specific needs..."
+      },
+      "consent": {
+        "label": "I agree that my data may be used to process my request and I have read the privacy policy."
+      }
+    },
+    "options": {
+      "projectType": {
+        "site": "Showcase website",
+        "webApp": "Web application",
+        "mobileApp": "Mobile application",
+        "ecommerce": "E-commerce",
+        "redesign": "Website redesign",
+        "seo": "SEO / Marketing",
+        "design": "UI/UX Design",
+        "other": "Other"
+      },
+      "budget": {
+        "less2k": "Less than 1,000,000 FCFA",
+        "2k5k": "1,000,000 - 3,000,000 FCFA",
+        "5k10k": "3,000,000 - 6,000,000 FCFA",
+        "10k20k": "6,000,000 - 12,000,000 FCFA",
+        "20k50k": "12,000,000 - 30,000,000 FCFA",
+        "more50k": "More than 30,000,000 FCFA"
+      },
+      "timeline": {
+        "less1m": "Less than 1 month",
+        "1m3m": "1 - 3 months",
+        "3m6m": "3 - 6 months",
+        "6m12m": "6 - 12 months",
+        "more12m": "More than 12 months",
+        "undetermined": "Undetermined"
+      }
+    },
+    "summary": {
+      "title": "Summary of your request",
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "projectType": "Project type",
+      "budget": "Estimated budget",
+      "timeline": "Desired timeline",
+      "description": "Description",
+      "empty": "Not provided"
+    },
+    "actions": {
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Send request",
+      "sending": "Sending...",
+      "newRequest": "New request"
+    },
+    "success": {
+      "title": "Thank you for your request!",
+      "subtitle": "We have received your quote request. Our team is analyzing it and will get back to you with a personalized proposal within 24 hours."
+    },
+    "assurances": {
+      "privacy": {
+        "title": "Guaranteed confidentiality",
+        "description": "Your information is secure and will never be shared without your consent."
+      },
+      "response": {
+        "title": "Reply within 24h",
+        "description": "Our team is committed to responding to you within a maximum of 24 business hours."
+      },
+      "free": {
+        "title": "Free quote",
+        "description": "Our estimate is completely free and without any commitment on your part."
+      }
+    },
+    "errors": {
+      "rateLimited": "Too many attempts. Please try again in a minute.",
+      "validation": "Please check the form information.",
+      "generic": "An error occurred. Please try again."
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "label": "Portfolio",
+      "title": "Our",
+      "titleHighlight": "work",
+      "subtitle": "Discover a selection of projects we have designed, developed and delivered."
+    },
+    "filters": {
+      "title": "Filter",
+      "search": "Search",
+      "searchPlaceholder": "Name, tag, tech...",
+      "category": "Type",
+      "scope": "Scope",
+      "year": "Year",
+      "tech": "Technologies",
+      "all": "All",
+      "clear": "Reset",
+      "results": "{count, plural, =0 {No projects} =1 {1 project} other {# projects}}"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Mobile",
+      "SOFTWARE": "Software",
+      "API": "API",
+      "MODULE": "Module",
+      "PACKAGE": "Package",
+      "SERVICE": "Service",
+      "IA": "AI",
+      "DESIGN": "Design",
+      "LOGO": "Logo",
+      "TRAINING": "Training",
+      "MAINTENANCE": "Maintenance",
+      "SALES": "Sales"
+    },
+    "scopes": {
+      "INTERNAL": "Internal",
+      "CLIENT": "Client",
+      "PUBLIC": "Public",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "External"
+    },
+    "status": {
+      "COMPLETED": "Delivered",
+      "IN_PROGRESS": "In progress",
+      "PLANNED": "Planned",
+      "ARCHIVED": "Archived"
+    },
+    "links": {
+      "DEMO": "View demo",
+      "GITHUB": "Source code",
+      "NPM": "View on npm",
+      "DOC": "Documentation",
+      "SITE": "Visit site",
+      "STORE": "View on store",
+      "ARTICLE": "Read article"
+    },
+    "card": {
+      "viewProject": "View project",
+      "featured": "Featured"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {current} of {total}"
+    },
+    "empty": {
+      "title": "No projects found",
+      "subtitle": "Try adjusting your filters or contact us to discuss your project.",
+      "cta": "Contact us"
+    },
+    "cta": {
+      "title": "Got a project in mind?",
+      "subtitle": "Let's discuss your needs and find the best solution together.",
+      "primary": "Request a quote",
+      "secondary": "Contact us"
+    }
+  },
+  "projectDetail": {
+    "breadcrumb": {
+      "home": "Home",
+      "portfolio": "Portfolio"
+    },
+    "meta": {
+      "year": "Year",
+      "client": "Client",
+      "status": "Status",
+      "scope": "Scope",
+      "category": "Category",
+      "duration": "Duration",
+      "team": "Team"
+    },
+    "sections": {
+      "overview": "Overview",
+      "gallery": "Visual overview",
+      "features": "Key features",
+      "tech": "Tech stack",
+      "links": "Useful links",
+      "similar": "Similar projects"
+    },
+    "links": {
+      "DEMO": "View demo",
+      "GITHUB": "View source code",
+      "NPM": "Install from npm",
+      "DOC": "Read documentation",
+      "SITE": "Visit site",
+      "STORE": "View on store",
+      "ARTICLE": "Read article"
+    },
+    "status": {
+      "COMPLETED": "Delivered",
+      "IN_PROGRESS": "In progress",
+      "PLANNED": "Planned",
+      "ARCHIVED": "Archived"
+    },
+    "scopes": {
+      "INTERNAL": "Internal",
+      "CLIENT": "Client",
+      "PUBLIC": "Public",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "External"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Mobile",
+      "SOFTWARE": "Software",
+      "API": "API",
+      "MODULE": "Module",
+      "PACKAGE": "Package",
+      "SERVICE": "Service",
+      "IA": "AI",
+      "DESIGN": "Design",
+      "LOGO": "Logo",
+      "TRAINING": "Training",
+      "MAINTENANCE": "Maintenance",
+      "SALES": "Sales"
+    },
+    "cta": {
+      "title": "Inspired by this project?",
+      "subtitle": "Let's discuss your project and create something exceptional together.",
+      "primary": "Start my project",
+      "secondary": "See full portfolio"
+    },
+    "notFound": {
+      "title": "Project not found",
+      "subtitle": "The project you're looking for doesn't exist or has been moved.",
+      "back": "Back to portfolio"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About",
+      "title": "Who",
+      "titleHighlight": "we are",
+      "subtitle": "Open Numeric is a Burkinabè digital studio designing tailor-made digital solutions to support businesses in their transformation."
+    },
+    "mission": {
+      "label": "Our mission",
+      "title": "Democratizing",
+      "titleHighlight": "technology",
+      "paragraphs": [
+        "We believe that every business, whatever its size, deserves professional-grade digital tools. Our mission is to make technology accessible, efficient and adapted to local realities.",
+        "We combine international technical expertise with a deep understanding of the African context to deliver solutions that truly work, in the field."
+      ]
+    },
+    "values": {
+      "label": "Our values",
+      "title": "What drives",
+      "titleHighlight": "us",
+      "items": {
+        "excellence": {
+          "title": "Excellence",
+          "description": "We don't deliver anything we wouldn't be proud to use ourselves. Quality without compromise."
+        },
+        "proximity": {
+          "title": "Proximity",
+          "description": "We work hand in hand with our clients, not above them. Active listening and total transparency."
+        },
+        "innovation": {
+          "title": "Innovation",
+          "description": "We stay at the forefront of technology to offer the best in every project."
+        },
+        "impact": {
+          "title": "Impact",
+          "description": "Our solutions must generate real, measurable and lasting return on investment."
+        }
+      }
+    },
+    "team": {
+      "label": "Our team",
+      "title": "The faces behind",
+      "titleHighlight": "Open Numeric",
+      "subtitle": "A passionate, multicultural and committed team."
+    },
+    "stats": {
+      "label": "In numbers",
+      "items": {
+        "projects": {
+          "value": "50+",
+          "label": "Projects delivered"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "Happy clients"
+        },
+        "years": {
+          "value": "4+",
+          "label": "Years of experience"
+        },
+        "countries": {
+          "value": "3",
+          "label": "Countries served"
+        }
+      }
+    },
+    "cta": {
+      "title": "Want to work with us?",
+      "subtitle": "Let's discuss your project and see how we can help you.",
+      "primary": "Contact us",
+      "secondary": "See our work"
+    }
+  },
+  "search": {
+    "trigger": "Search",
+    "title": "Search",
+    "backHome": "Back to home",
+    "pageSubtitle": "Quickly find projects, services, team and more.",
+    "placeholder": "Search a project, service, member...",
+    "placeholderShort": "Search...",
+    "clear": "Clear",
+    "close": "Close",
+    "hint": "Type at least 2 characters",
+    "hintSub": "Projects, services, team, testimonials, clients...",
+    "resultsCount": "{count, plural, =0 {No results} =1 {1 result} other {# results}}",
+    "error": "An error occurred while searching.",
+    "types": {
+      "project": "Project",
+      "service": "Service",
+      "team": "Team",
+      "client": "Client",
+      "testimonial": "Testimonial",
+      "nav": "Page"
+    },
+    "empty": {
+      "title": "No results",
+      "subtitle": "No results for \"{query}\""
+    }
+  }
+}

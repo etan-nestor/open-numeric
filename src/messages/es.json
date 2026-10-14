@@ -1,0 +1,595 @@
+{
+  "topBar": {
+    "promo": "Nuevo: formaciones en IA disponibles"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "quote": "Solicitar presupuesto",
+    "theme": "Tema",
+    "language": "Idioma"
+  },
+  "servicesSection": {
+    "title": "Lo que",
+    "titleHighlight": "hacemos",
+    "subtitle": "Una gama completa de servicios digitales para todas tus necesidades.",
+    "learnMore": "Saber más",
+    "viewAll": "Ver todos los servicios",
+    "moreServices": "más servicios"
+  },
+  "team": {
+    "badge": "Nuestro equipo",
+    "title": "Expertos",
+    "titleHighlight": "apasionados",
+    "subtitle": "Conoce a los expertos que dan vida a tus proyectos."
+  },
+  "clients": {
+    "badge": "Nuestros socios",
+    "title": "Confían en",
+    "titleHighlight": "nosotros",
+    "subtitle": "Empresas innovadoras que nos eligieron para sus proyectos digitales."
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que dicen",
+    "titleHighlight": "nuestros clientes",
+    "subtitle": "Descubre los comentarios de nuestros socios."
+  },
+  "cta": {
+    "badge": "¿Listo para empezar?",
+    "title": "Convirtamos tu",
+    "titleHighlight": "visión en realidad",
+    "subtitle": "Contáctanos hoy para hablar de tu proyecto y descubrir cómo podemos ayudarte.",
+    "primary": "Contáctanos",
+    "secondary": "Solicitar presupuesto"
+  },
+  "footer": {
+    "aboutText": "Tu socio en soluciones digitales. Desarrollo, diseño, formación y mantenimiento.",
+    "services": "Nuestros Servicios",
+    "usefulLinks": "Enlaces Útiles",
+    "contact": "Contáctanos",
+    "contactButton": "Formulario de contacto",
+    "about": "Sobre nosotros",
+    "team": "Nuestro equipo",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "testimonials": "Testimonios",
+    "rights": "Todos los derechos reservados.",
+    "legal": "Aviso legal",
+    "cookies": "Política de cookies",
+    "terms": "Términos"
+  },
+  "hero": {
+    "badge": "Nuevo · Soluciones IA 2026",
+    "title": "Soluciones Digitales",
+    "titleHighlight": "A Medida",
+    "subtitle": "Desarrollo, diseño, formación y mantenimiento — todo lo que necesitas para triunfar en tu transformación digital.",
+    "ctaPrimary": "Descubre nuestros servicios",
+    "ctaSecondary": "Contáctanos",
+    "available": "Disponible",
+    "stats": {
+      "projects": "Proyectos entregados",
+      "clients": "Clientes satisfechos",
+      "years": "Años de experiencia",
+      "team": "Expertos dedicados"
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Servicios",
+      "titleHighlight": "Premium",
+      "subtitle": "Soluciones digitales de alto nivel para convertir tu visión en realidad. Experiencia, rapidez y calidad garantizadas.",
+      "ctaPrimary": "Solicitar presupuesto",
+      "ctaSecondary": "Contáctanos",
+      "available": "Disponible",
+      "fastDelivery": "Entrega rápida",
+      "fastDeliverySub": "Proyectos en tiempo récord"
+    },
+    "tabs": {
+      "label": "Categorías"
+    },
+    "learnMore": "Saber más",
+    "process": {
+      "badge": "Metodología",
+      "title": "Nuestro proceso",
+      "titleHighlight": "de excelencia",
+      "subtitle": "Una metodología rigurosa para resultados excepcionales en cada etapa.",
+      "steps": {
+        "consultation": {
+          "title": "Consulta",
+          "description": "Análisis en profundidad de tus necesidades y definición de objetivos estratégicos."
+        },
+        "design": {
+          "title": "Diseño",
+          "description": "Elaboración de soluciones a medida y validación de conceptos."
+        },
+        "build": {
+          "title": "Realización",
+          "description": "Desarrollo riguroso con pruebas de calidad en cada etapa."
+        },
+        "delivery": {
+          "title": "Entrega",
+          "description": "Soporte continuo y mejoras para un rendimiento óptimo."
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para hacer realidad tu proyecto?",
+      "subtitle": "Contáctanos para una consulta gratuita y descubre cómo podemos ayudarte.",
+      "primary": "Llámanos",
+      "secondary": "Enviar email"
+    }
+  },
+  "serviceDetail": {
+    "common": {
+      "learnMore": "Saber más",
+      "viewProjects": "Ver proyectos",
+      "talkToExpert": "Hablar con un experto",
+      "requestQuote": "Solicitar presupuesto",
+      "ctaTitle": "¿Listo para hacer realidad tu proyecto?",
+      "ctaSubtitle": "Contáctanos para hablar de tus necesidades."
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Contacto",
+      "title": "Hablemos de tu",
+      "titleHighlight": "proyecto",
+      "subtitle": "Nuestro equipo está disponible para responder a todas tus preguntas y acompañarte en tu transformación digital."
+    },
+    "form": {
+      "title": "Envíanos un",
+      "titleHighlight": "mensaje",
+      "subtitle": "Rellena el siguiente formulario y te responderemos lo antes posible.",
+      "fields": {
+        "name": {
+          "label": "Tu nombre",
+          "placeholder": "Juan Pérez"
+        },
+        "email": {
+          "label": "Tu correo",
+          "placeholder": "juan@ejemplo.com"
+        },
+        "subject": {
+          "label": "Asunto",
+          "placeholder": "Solicitud de presupuesto"
+        },
+        "message": {
+          "label": "Tu mensaje",
+          "placeholder": "Describe tu proyecto en pocas palabras..."
+        }
+      },
+      "submit": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "Tu mensaje ha sido enviado. Te responderemos pronto.",
+      "errors": {
+        "rateLimited": "Demasiados intentos. Inténtalo de nuevo en un minuto.",
+        "validation": "Por favor, revisa la información del formulario.",
+        "generic": "Ha ocurrido un error. Inténtalo de nuevo."
+      }
+    },
+    "info": {
+      "title": "Nuestros",
+      "titleHighlight": "datos de contacto",
+      "items": {
+        "address": {
+          "label": "Dirección"
+        },
+        "phone": {
+          "label": "Teléfono"
+        },
+        "email": {
+          "label": "Correo"
+        }
+      }
+    },
+    "schedule": {
+      "title": "Horario",
+      "titleHighlight": "de apertura",
+      "whatsapp": {
+        "title": "Hablemos por WhatsApp",
+        "subtitle": "Respuesta rápida, intercambio directo, envío de archivos."
+      },
+      "days": {
+        "weekdays": "Lunes - Viernes",
+        "saturday": "Sábado",
+        "sunday": "Domingo"
+      },
+      "hours": {
+        "weekdays": "08:00 - 18:00",
+        "saturday": "09:00 - 14:00",
+        "sunday": "Cerrado"
+      },
+      "socials": "Redes sociales"
+    },
+    "map": {
+      "title": "Encuéntranos",
+      "titleHighlight": "",
+      "subtitle": "Nuestra oficina en Uagadugú, Burkina Faso."
+    }
+  },
+  "quote": {
+    "hero": {
+      "label": "Presupuesto",
+      "title": "Solicita tu",
+      "titleHighlight": "presupuesto",
+      "subtitle": "Rellena este formulario para recibir una estimación personalizada de tu proyecto en 24 horas."
+    },
+    "steps": {
+      "contact": {
+        "title": "Tus datos de contacto",
+        "subtitle": "Cuéntanos un poco sobre ti para que podamos contactarte."
+      },
+      "project": {
+        "title": "Detalles del proyecto",
+        "subtitle": "Ayúdanos a entender tu proyecto y tus expectativas."
+      },
+      "summary": {
+        "title": "Resumen y envío",
+        "subtitle": "Revisa tu información antes de enviarnos tu solicitud."
+      },
+      "labels": {
+        "contact": "Información",
+        "project": "Proyecto",
+        "summary": "Finalización"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Nombre completo",
+        "placeholder": "Juan Pérez"
+      },
+      "company": {
+        "label": "Empresa",
+        "placeholder": "Mi empresa S.L."
+      },
+      "email": {
+        "label": "Correo",
+        "placeholder": "juan@ejemplo.com"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "placeholder": "+226 65 00 00 00"
+      },
+      "projectType": {
+        "label": "Tipo de proyecto",
+        "placeholder": "Selecciona un tipo de proyecto"
+      },
+      "budget": {
+        "label": "Presupuesto estimado",
+        "placeholder": "Selecciona un rango"
+      },
+      "timeline": {
+        "label": "Plazo deseado",
+        "placeholder": "Selecciona un plazo"
+      },
+      "description": {
+        "label": "Descripción del proyecto",
+        "placeholder": "Describe tu proyecto en detalle, tus objetivos, tus necesidades específicas..."
+      },
+      "consent": {
+        "label": "Acepto que mis datos se utilicen para procesar mi solicitud y he leído la política de privacidad."
+      }
+    },
+    "options": {
+      "projectType": {
+        "site": "Sitio web corporativo",
+        "webApp": "Aplicación web",
+        "mobileApp": "Aplicación móvil",
+        "ecommerce": "E-commerce",
+        "redesign": "Rediseño de sitio",
+        "seo": "SEO / Marketing",
+        "design": "Diseño UI/UX",
+        "other": "Otro"
+      },
+      "budget": {
+        "less2k": "Menos de 1.000.000 FCFA",
+        "2k5k": "1.000.000 - 3.000.000 FCFA",
+        "5k10k": "3.000.000 - 6.000.000 FCFA",
+        "10k20k": "6.000.000 - 12.000.000 FCFA",
+        "20k50k": "12.000.000 - 30.000.000 FCFA",
+        "more50k": "Más de 30.000.000 FCFA"
+      },
+      "timeline": {
+        "less1m": "Menos de 1 mes",
+        "1m3m": "1 - 3 meses",
+        "3m6m": "3 - 6 meses",
+        "6m12m": "6 - 12 meses",
+        "more12m": "Más de 12 meses",
+        "undetermined": "Sin determinar"
+      }
+    },
+    "summary": {
+      "title": "Resumen de tu solicitud",
+      "name": "Nombre",
+      "company": "Empresa",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "projectType": "Tipo de proyecto",
+      "budget": "Presupuesto estimado",
+      "timeline": "Plazo deseado",
+      "description": "Descripción",
+      "empty": "No indicado"
+    },
+    "actions": {
+      "next": "Siguiente",
+      "previous": "Anterior",
+      "submit": "Enviar solicitud",
+      "sending": "Enviando...",
+      "newRequest": "Nueva solicitud"
+    },
+    "success": {
+      "title": "¡Gracias por tu solicitud!",
+      "subtitle": "Hemos recibido tu solicitud de presupuesto. Nuestro equipo la está analizando y se pondrá en contacto contigo con una propuesta personalizada en 24 horas."
+    },
+    "assurances": {
+      "privacy": {
+        "title": "Confidencialidad garantizada",
+        "description": "Tu información está segura y nunca se compartirá sin tu consentimiento."
+      },
+      "response": {
+        "title": "Respuesta en 24h",
+        "description": "Nuestro equipo se compromete a responderte en un plazo máximo de 24 horas laborables."
+      },
+      "free": {
+        "title": "Presupuesto gratuito",
+        "description": "Nuestra estimación es completamente gratuita y sin ningún compromiso por tu parte."
+      }
+    },
+    "errors": {
+      "rateLimited": "Demasiados intentos. Inténtalo de nuevo en un minuto.",
+      "validation": "Por favor, revisa la información del formulario.",
+      "generic": "Ha ocurrido un error. Inténtalo de nuevo."
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "label": "Portafolio",
+      "title": "Nuestros",
+      "titleHighlight": "trabajos",
+      "subtitle": "Descubre una selección de proyectos que hemos diseñado, desarrollado y entregado."
+    },
+    "filters": {
+      "title": "Filtrar",
+      "search": "Buscar",
+      "searchPlaceholder": "Nombre, etiqueta, tecnología...",
+      "category": "Tipo",
+      "scope": "Alcance",
+      "year": "Año",
+      "tech": "Tecnologías",
+      "all": "Todos",
+      "clear": "Restablecer",
+      "results": "{count, plural, =0 {Ningún proyecto} =1 {1 proyecto} other {# proyectos}}"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Móvil",
+      "SOFTWARE": "Software",
+      "API": "API",
+      "MODULE": "Módulo",
+      "PACKAGE": "Paquete",
+      "SERVICE": "Servicio",
+      "IA": "IA",
+      "DESIGN": "Diseño",
+      "LOGO": "Logotipo",
+      "TRAINING": "Formación",
+      "MAINTENANCE": "Mantenimiento",
+      "SALES": "Ventas"
+    },
+    "scopes": {
+      "INTERNAL": "Interno",
+      "CLIENT": "Cliente",
+      "PUBLIC": "Público",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "Externo"
+    },
+    "status": {
+      "COMPLETED": "Entregado",
+      "IN_PROGRESS": "En curso",
+      "PLANNED": "Planeado",
+      "ARCHIVED": "Archivado"
+    },
+    "links": {
+      "DEMO": "Ver demo",
+      "GITHUB": "Código fuente",
+      "NPM": "Ver en npm",
+      "DOC": "Documentación",
+      "SITE": "Visitar sitio",
+      "STORE": "Ver en la tienda",
+      "ARTICLE": "Leer artículo"
+    },
+    "card": {
+      "viewProject": "Ver proyecto",
+      "featured": "Destacado"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {current} de {total}"
+    },
+    "empty": {
+      "title": "No se encontraron proyectos",
+      "subtitle": "Intenta ajustar los filtros o contáctanos para hablar de tu proyecto.",
+      "cta": "Contáctanos"
+    },
+    "cta": {
+      "title": "¿Tienes un proyecto en mente?",
+      "subtitle": "Hablemos de tus necesidades y encontremos juntos la mejor solución.",
+      "primary": "Solicitar presupuesto",
+      "secondary": "Contáctanos"
+    }
+  },
+  "projectDetail": {
+    "breadcrumb": {
+      "home": "Inicio",
+      "portfolio": "Portafolio"
+    },
+    "meta": {
+      "year": "Año",
+      "client": "Cliente",
+      "status": "Estado",
+      "scope": "Alcance",
+      "category": "Categoría",
+      "duration": "Duración",
+      "team": "Equipo"
+    },
+    "sections": {
+      "overview": "Descripción",
+      "gallery": "Vista visual",
+      "features": "Funciones clave",
+      "tech": "Stack técnico",
+      "links": "Enlaces útiles",
+      "similar": "Proyectos similares"
+    },
+    "links": {
+      "DEMO": "Ver demo",
+      "GITHUB": "Ver código fuente",
+      "NPM": "Instalar desde npm",
+      "DOC": "Leer documentación",
+      "SITE": "Visitar sitio",
+      "STORE": "Ver en la tienda",
+      "ARTICLE": "Leer artículo"
+    },
+    "status": {
+      "COMPLETED": "Entregado",
+      "IN_PROGRESS": "En curso",
+      "PLANNED": "Planeado",
+      "ARCHIVED": "Archivado"
+    },
+    "scopes": {
+      "INTERNAL": "Interno",
+      "CLIENT": "Cliente",
+      "PUBLIC": "Público",
+      "OPEN_SOURCE": "Open Source",
+      "EXTERNAL": "Externo"
+    },
+    "categories": {
+      "WEB": "Web",
+      "MOBILE": "Móvil",
+      "SOFTWARE": "Software",
+      "API": "API",
+      "MODULE": "Módulo",
+      "PACKAGE": "Paquete",
+      "SERVICE": "Servicio",
+      "IA": "IA",
+      "DESIGN": "Diseño",
+      "LOGO": "Logotipo",
+      "TRAINING": "Formación",
+      "MAINTENANCE": "Mantenimiento",
+      "SALES": "Ventas"
+    },
+    "cta": {
+      "title": "¿Te inspira este proyecto?",
+      "subtitle": "Hablemos de tu proyecto y creemos algo excepcional juntos.",
+      "primary": "Iniciar mi proyecto",
+      "secondary": "Ver todo el portafolio"
+    },
+    "notFound": {
+      "title": "Proyecto no encontrado",
+      "subtitle": "El proyecto que buscas no existe o ha sido movido.",
+      "back": "Volver al portafolio"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "Nosotros",
+      "title": "Quiénes",
+      "titleHighlight": "somos",
+      "subtitle": "Open Numeric es un estudio digital burkinés que diseña soluciones digitales a medida para acompañar a las empresas en su transformación."
+    },
+    "mission": {
+      "label": "Nuestra misión",
+      "title": "Democratizar lo",
+      "titleHighlight": "digital",
+      "paragraphs": [
+        "Creemos que cada empresa, sea cual sea su tamaño, merece herramientas digitales de calidad profesional. Nuestra misión es hacer la tecnología accesible, eficiente y adaptada a las realidades locales.",
+        "Combinamos experiencia técnica internacional con una comprensión profunda del contexto africano para entregar soluciones que realmente funcionan, sobre el terreno."
+      ]
+    },
+    "values": {
+      "label": "Nuestros valores",
+      "title": "Lo que nos",
+      "titleHighlight": "mueve",
+      "items": {
+        "excellence": {
+          "title": "Excelencia",
+          "description": "No entregamos nada que no estaríamos orgullosos de usar nosotros mismos. Calidad sin compromiso."
+        },
+        "proximity": {
+          "title": "Cercanía",
+          "description": "Trabajamos mano a mano con nuestros clientes, no por encima de ellos. Escucha activa y transparencia total."
+        },
+        "innovation": {
+          "title": "Innovación",
+          "description": "Nos mantenemos a la vanguardia de la tecnología para ofrecer lo mejor en cada proyecto."
+        },
+        "impact": {
+          "title": "Impacto",
+          "description": "Nuestras soluciones deben generar un retorno de inversión real, medible y duradero."
+        }
+      }
+    },
+    "team": {
+      "label": "Nuestro equipo",
+      "title": "Las caras detrás de",
+      "titleHighlight": "Open Numeric",
+      "subtitle": "Un equipo apasionado, multicultural y comprometido."
+    },
+    "stats": {
+      "label": "En cifras",
+      "items": {
+        "projects": {
+          "value": "50+",
+          "label": "Proyectos entregados"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "Clientes satisfechos"
+        },
+        "years": {
+          "value": "4+",
+          "label": "Años de experiencia"
+        },
+        "countries": {
+          "value": "3",
+          "label": "Países"
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Quieres trabajar con nosotros?",
+      "subtitle": "Hablemos de tu proyecto y veamos cómo podemos ayudarte.",
+      "primary": "Contáctanos",
+      "secondary": "Ver nuestro trabajo"
+    }
+  },
+  "search": {
+    "trigger": "Buscar",
+    "title": "Búsqueda",
+    "backHome": "Volver al inicio",
+    "pageSubtitle": "Encuentra rápidamente proyectos, servicios, equipo y más.",
+    "placeholder": "Buscar un proyecto, servicio, miembro...",
+    "placeholderShort": "Buscar...",
+    "clear": "Limpiar",
+    "close": "Cerrar",
+    "hint": "Escribe al menos 2 caracteres",
+    "hintSub": "Proyectos, servicios, equipo, testimonios, clientes...",
+    "resultsCount": "{count, plural, =0 {Sin resultados} =1 {1 resultado} other {# resultados}}",
+    "error": "Ha ocurrido un error durante la búsqueda.",
+    "types": {
+      "project": "Proyecto",
+      "service": "Servicio",
+      "team": "Equipo",
+      "client": "Cliente",
+      "testimonial": "Testimonio",
+      "nav": "Página"
+    },
+    "empty": {
+      "title": "Sin resultados",
+      "subtitle": "Sin resultados para \"{query}\""
+    }
+  }
+}

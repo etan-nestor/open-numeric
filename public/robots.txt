@@ -1,0 +1,36 @@
+# Open Numeric — robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Disallow: /_next/static/chunks/
+Disallow: /*?utm_
+Disallow: /*?ref=
+
+# Crawlers IA (optionnel — bloque si tu ne veux pas être aspiré)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Robots officiels
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Host & Sitemap
+Host: https://opennumeric.com
+Sitemap: https://opennumeric.com/sitemap.xml
